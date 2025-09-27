@@ -76,24 +76,27 @@
             // 
             // buttonCalculate_ZYA
             // 
+            buttonCalculate_ZYA.BackColor = Color.Lime;
+            buttonCalculate_ZYA.ForeColor = SystemColors.ControlText;
             buttonCalculate_ZYA.Location = new Point(233, 40);
             buttonCalculate_ZYA.Margin = new Padding(4, 3, 4, 3);
             buttonCalculate_ZYA.Name = "buttonCalculate_ZYA";
             buttonCalculate_ZYA.Size = new Size(88, 27);
             buttonCalculate_ZYA.TabIndex = 5;
             buttonCalculate_ZYA.Text = "Выполнить";
-            buttonCalculate_ZYA.UseVisualStyleBackColor = true;
+            buttonCalculate_ZYA.UseVisualStyleBackColor = false;
             buttonCalculate_ZYA.Click += buttonCalculate_ZYA_Click;
             // 
             // buttonHelp_ZYA
             // 
+            buttonHelp_ZYA.BackColor = SystemColors.ActiveCaption;
             buttonHelp_ZYA.Location = new Point(233, 75);
             buttonHelp_ZYA.Margin = new Padding(4, 3, 4, 3);
             buttonHelp_ZYA.Name = "buttonHelp_ZYA";
             buttonHelp_ZYA.Size = new Size(88, 27);
             buttonHelp_ZYA.TabIndex = 6;
             buttonHelp_ZYA.Text = "Справка";
-            buttonHelp_ZYA.UseVisualStyleBackColor = true;
+            buttonHelp_ZYA.UseVisualStyleBackColor = false;
             buttonHelp_ZYA.Click += buttonHelp_ZYA_Click;
             // 
             // FormMain
