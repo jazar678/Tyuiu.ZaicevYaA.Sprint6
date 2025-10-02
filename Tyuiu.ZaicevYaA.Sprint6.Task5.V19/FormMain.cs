@@ -2,6 +2,7 @@ using System;
 using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib;
 using System.IO;
+using System.Linq;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
 {
@@ -28,6 +29,8 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
             dataGridViewNums_ZYA.ColumnCount = 2;
             dataGridViewNums_ZYA.Columns[0].Width = 20;
             dataGridViewNums_ZYA.Columns[1].Width = 50;
+            dataGridViewNums_ZYA.Columns[0].HeaderText = "№";
+            dataGridViewNums_ZYA.Columns[1].HeaderText = "Значение";
 
             this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
             this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
@@ -37,13 +40,13 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
 
             dataGridViewNums_ZYA.Rows.Clear();
 
-            for (int i = 0; i < nums.Length; i++)
+            // Фильтруем только целые числа
+            double[] integerNumbers = nums.Where(x => Math.Abs(x % 1) < 0.0001).ToArray();
+
+            for (int i = 0; i < integerNumbers.Length; i++)
             {
-                if (nums[i] % 1 == 0)
-                {
-                    dataGridViewNums_ZYA.Rows.Add(i, nums[i]);
-                    this.chartDiag_ZYA.Series[0].Points.AddXY(i, nums[i]);
-                }
+                dataGridViewNums_ZYA.Rows.Add(i, integerNumbers[i]);
+                this.chartDiag_ZYA.Series[0].Points.AddXY(i, integerNumbers[i]);
             }
         }
 

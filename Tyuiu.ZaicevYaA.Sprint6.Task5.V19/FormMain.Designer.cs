@@ -30,8 +30,6 @@
             chartDiag_ZYA = new System.Windows.Forms.DataVisualization.Charting.Chart();
             splitter1 = new Splitter();
             dataGridViewNums_ZYA = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             panelTop_ZYA.SuspendLayout();
             groupBoxInput_ZYA.SuspendLayout();
             panelBottom_ZYA.SuspendLayout();
@@ -150,25 +148,12 @@
             // dataGridViewNums_ZYA
             // 
             dataGridViewNums_ZYA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewNums_ZYA.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridViewNums_ZYA.Dock = DockStyle.Left;
             dataGridViewNums_ZYA.Location = new Point(0, 0);
             dataGridViewNums_ZYA.Margin = new Padding(4, 3, 4, 3);
             dataGridViewNums_ZYA.Name = "dataGridViewNums_ZYA";
             dataGridViewNums_ZYA.Size = new Size(233, 427);
             dataGridViewNums_ZYA.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "№";
-            Column1.Name = "Column1";
-            Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Значение";
-            Column2.Name = "Column2";
-            Column2.Width = 80;
             // 
             // FormMain
             // 
@@ -203,7 +188,5 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDiag_ZYA;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.DataGridView dataGridViewNums_ZYA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

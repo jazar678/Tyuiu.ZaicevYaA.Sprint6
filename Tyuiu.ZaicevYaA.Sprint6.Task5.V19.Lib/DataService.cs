@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Globalization;
+using System.Collections.Generic;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib
@@ -9,28 +11,32 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib
     {
         public double[] LoadFromDataFile(string path)
         {
-            string[] lines = File.ReadAllLines(path);
-            double[] numbers = new double[0];
-
-            foreach (string line in lines)
+            if (!File.Exists(path))
             {
-                if (!string.IsNullOrWhiteSpace(line))
-                {
-                    string cleanLine = line.Replace("[", "").Replace("]", "").Replace("(", "").Replace(")", "");
-                    string[] values = cleanLine.Split(',');
+                throw new FileNotFoundException($"Файл {path} не найден");
+            }
 
-                    foreach (string value in values)
-                    {
-                        if (double.TryParse(value.Trim(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double num))
-                        {
-                            Array.Resize(ref numbers, numbers.Length + 1);
-                            numbers[numbers.Length - 1] = Math.Round(num, 3);
-                        }
-                    }
+            string content = File.ReadAllText(path);
+
+            // Удаляем все скобки и лишние символы
+            content = content.Replace("[", "").Replace("]", "").Replace("(", "").Replace(")", "")
+                            .Replace("{", "").Replace("}", "").Replace("\r", "").Replace("\n", "");
+
+            // Разделяем по запятым
+            string[] stringValues = content.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<double> numbers = new List<double>();
+
+            foreach (string stringValue in stringValues)
+            {
+                string cleanValue = stringValue.Trim();
+                if (double.TryParse(cleanValue, NumberStyles.Float, CultureInfo.InvariantCulture, out double num))
+                {
+                    numbers.Add(Math.Round(num, 3));
                 }
             }
 
-            return numbers;
+            return numbers.ToArray();
         }
     }
 }
