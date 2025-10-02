@@ -31,10 +31,15 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Test
             string path = @"C:\DataSprint6\InPutFileTask5V19.txt";
 
             double[] allNumbers = ds.LoadFromDataFile(path);
-            double[] integerNumbers = allNumbers.Where(x => x % 1 == 0).ToArray();
+            double[] integerNumbers = allNumbers.Where(x => IsInteger(x)).ToArray();
             double[] expectedIntegers = { -17, 0, 12, 5, 35, -9, 0, -7 };
 
             CollectionAssert.AreEqual(expectedIntegers, integerNumbers);
+        }
+
+        private bool IsInteger(double number)
+        {
+            return Math.Abs(number % 1) <= 0.0001;
         }
     }
 }

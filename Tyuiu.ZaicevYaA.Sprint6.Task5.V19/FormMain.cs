@@ -26,28 +26,40 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
 
         private void buttonDone_ZYA_Click(object sender, EventArgs e)
         {
-            dataGridViewNums_ZYA.ColumnCount = 2;
-            dataGridViewNums_ZYA.Columns[0].Width = 20;
-            dataGridViewNums_ZYA.Columns[1].Width = 50;
-            dataGridViewNums_ZYA.Columns[0].HeaderText = "№";
-            dataGridViewNums_ZYA.Columns[1].HeaderText = "Значение";
-
-            this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
-            this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
-            this.chartDiag_ZYA.Series[0].Points.Clear();
-
-            double[] nums = ds.LoadFromDataFile(path);
-
-            dataGridViewNums_ZYA.Rows.Clear();
-
-            // Фильтруем только целые числа
-            double[] integerNumbers = nums.Where(x => Math.Abs(x % 1) < 0.0001).ToArray();
-
-            for (int i = 0; i < integerNumbers.Length; i++)
+            try
             {
-                dataGridViewNums_ZYA.Rows.Add(i, integerNumbers[i]);
-                this.chartDiag_ZYA.Series[0].Points.AddXY(i, integerNumbers[i]);
+                dataGridViewNums_ZYA.ColumnCount = 2;
+                dataGridViewNums_ZYA.Columns[0].Width = 20;
+                dataGridViewNums_ZYA.Columns[1].Width = 50;
+                dataGridViewNums_ZYA.Columns[0].HeaderText = "№";
+                dataGridViewNums_ZYA.Columns[1].HeaderText = "Значение";
+
+                this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
+                this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
+                this.chartDiag_ZYA.Series[0].Points.Clear();
+
+                double[] nums = ds.LoadFromDataFile(path);
+
+                dataGridViewNums_ZYA.Rows.Clear();
+
+                // Фильтруем только целые числа
+                double[] integerNumbers = nums.Where(x => IsInteger(x)).ToArray();
+
+                for (int i = 0; i < integerNumbers.Length; i++)
+                {
+                    dataGridViewNums_ZYA.Rows.Add(i, integerNumbers[i]);
+                    this.chartDiag_ZYA.Series[0].Points.AddXY(i, integerNumbers[i]);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool IsInteger(double number)
+        {
+            return Math.Abs(number % 1) <= 0.0001;
         }
 
         private void buttonHelp_ZYA_Click(object sender, EventArgs e)

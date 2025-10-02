@@ -16,23 +16,31 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib
                 throw new FileNotFoundException($"Файл {path} не найден");
             }
 
-            string content = File.ReadAllText(path);
-
-            // Удаляем все скобки и лишние символы
-            content = content.Replace("[", "").Replace("]", "").Replace("(", "").Replace(")", "")
-                            .Replace("{", "").Replace("}", "").Replace("\r", "").Replace("\n", "");
-
-            // Разделяем по запятым
-            string[] stringValues = content.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
+            string[] lines = File.ReadAllLines(path);
             List<double> numbers = new List<double>();
 
-            foreach (string stringValue in stringValues)
+            foreach (string line in lines)
             {
-                string cleanValue = stringValue.Trim();
-                if (double.TryParse(cleanValue, NumberStyles.Float, CultureInfo.InvariantCulture, out double num))
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                // Обрабатываем каждую строку отдельно
+                string cleanLine = line.Trim();
+
+                // Удаляем все скобки
+                cleanLine = cleanLine.Replace("[", "").Replace("]", "").Replace("(", "").Replace(")", "")
+                                    .Replace("{", "").Replace("}", "");
+
+                // Разделяем по запятым
+                string[] stringValues = cleanLine.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string stringValue in stringValues)
                 {
-                    numbers.Add(Math.Round(num, 3));
+                    string cleanValue = stringValue.Trim();
+                    if (double.TryParse(cleanValue, NumberStyles.Any, CultureInfo.InvariantCulture, out double num))
+                    {
+                        numbers.Add(Math.Round(num, 3));
+                    }
                 }
             }
 
