@@ -1,8 +1,6 @@
 using System;
 using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib;
-using System.IO;
-using System.Linq;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
 {
@@ -14,63 +12,36 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
         }
 
         DataService ds = new DataService();
-        string path = @"C:\DataSprint6\InPutFileTask5V19.txt";
 
-        private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
+        private void buttonDone_ZA_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process txt = new System.Diagnostics.Process();
-            txt.StartInfo.FileName = "notepad";
-            txt.StartInfo.Arguments = path;
-            txt.Start();
-        }
+            string path = @"C:\DataSprint6\InPutFileTask5V19.txt";
+            double[] nums = ds.LoadFromDataFile(path);
 
-        private void buttonDone_ZYA_Click(object sender, EventArgs e)
-        {
-            try
+            dataGridViewNums_ZA.Rows.Clear();
+            dataGridViewNums_ZA.Columns.Clear();
+
+            dataGridViewNums_ZA.Columns.Add("columnIndex", "№");
+            dataGridViewNums_ZA.Columns.Add("columnValue", "Значение");
+
+            chartFunction_ZA.Series[0].Points.Clear();
+
+            for (int i = 0; i < nums.Length; i++)
             {
-                dataGridViewNums_ZYA.ColumnCount = 2;
-                dataGridViewNums_ZYA.Columns[0].Width = 20;
-                dataGridViewNums_ZYA.Columns[1].Width = 50;
-                dataGridViewNums_ZYA.Columns[0].HeaderText = "№";
-                dataGridViewNums_ZYA.Columns[1].HeaderText = "Значение";
-
-                this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
-                this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
-                this.chartDiag_ZYA.Series[0].Points.Clear();
-
-                double[] nums = ds.LoadFromDataFile(path);
-
-                dataGridViewNums_ZYA.Rows.Clear();
-
-                // Фильтруем только целые числа
-                double[] integerNumbers = nums.Where(x => IsInteger(x)).ToArray();
-
-                for (int i = 0; i < integerNumbers.Length; i++)
-                {
-                    dataGridViewNums_ZYA.Rows.Add(i, integerNumbers[i]);
-                    this.chartDiag_ZYA.Series[0].Points.AddXY(i, integerNumbers[i]);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataGridViewNums_ZA.Rows.Add(i + 1, nums[i]);
+                chartFunction_ZA.Series[0].Points.AddXY(i + 1, nums[i]);
             }
         }
 
-        private bool IsInteger(double number)
+        private void buttonOpenFile_ZA_Click(object sender, EventArgs e)
         {
-            return Math.Abs(number % 1) <= 0.0001;
+            string path = @"C:\DataSprint6\InPutFileTask5V19.txt";
+            System.Diagnostics.Process.Start(path);
         }
 
-        private void buttonHelp_ZYA_Click(object sender, EventArgs e)
+        private void buttonHelp_ZA_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Таск 5 выполнил студент группы ПКТб-24-1 Зайцев Ярослав Александрович", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
-            this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
+            MessageBox.Show("Таск 5 выполнил студент группы ПКТб-24-1 Зайцев Ярослав Александрович", "Сообщение");
         }
     }
 }
