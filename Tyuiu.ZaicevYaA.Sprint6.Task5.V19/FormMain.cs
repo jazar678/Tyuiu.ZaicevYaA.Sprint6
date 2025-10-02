@@ -29,7 +29,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
             for (int i = 0; i < nums.Length; i++)
             {
                 dataGridViewNums_ZA.Rows.Add(i + 1, nums[i]);
-                chartFunction_ZA.Series[0].Points.AddXY(i + 1, nums[i]);
+                chartFunction_ZA.Series[0].Points.AddXY(i, nums[i]);
             }
         }
 

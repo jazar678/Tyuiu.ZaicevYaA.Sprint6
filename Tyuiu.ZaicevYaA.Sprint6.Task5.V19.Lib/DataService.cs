@@ -10,14 +10,13 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib
         public double[] LoadFromDataFile(string path)
         {
             string[] lines = File.ReadAllLines(path);
+
+            // Фильтруем только целые числа
             double[] numbers = lines
                 .Where(line => !string.IsNullOrWhiteSpace(line))
-                .Select(line =>
-                {
-                    if (double.TryParse(line, out double result))
-                        return Math.Round(result, 3);
-                    return 0;
-                })
+                .Select(line => line.Trim())
+                .Where(line => double.TryParse(line, out double num) && num == Math.Truncate(num))
+                .Select(line => double.Parse(line))
                 .ToArray();
 
             return numbers;

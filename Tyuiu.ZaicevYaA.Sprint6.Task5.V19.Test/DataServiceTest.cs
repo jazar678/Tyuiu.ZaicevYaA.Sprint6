@@ -13,8 +13,13 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Test
         {
             DataService ds = new DataService();
             string path = @"C:\DataSprint6\InPutFileTask5V19.txt";
+
+            // Создаем тестовый файл с данными
+            string[] testData = { "-17.0", "0.0", "12.0", "5.0", "35.0", "-9.0", "0.0", "-7.0" };
+            File.WriteAllLines(path, testData);
+
             double[] res = ds.LoadFromDataFile(path);
-            double[] wait = { 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5 };
+            double[] wait = { -17, 0, 12, 5, 35, -9, 0, -7 };
             CollectionAssert.AreEqual(wait, res);
         }
 
