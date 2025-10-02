@@ -19,7 +19,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Test
             Assert.AreEqual(true, fileExists);
 
             double[] res = ds.LoadFromDataFile(path);
-            double[] wait = { 5, 3, 7, 2, 8, 1, 4, 6 };
+            double[] wait = { -17, 0, 12, -14.32, 5, -7.84, 12.89, -1.57, -3.64, -13.26, -8.91, -17.77, 35, -9, 13.83, 12.76, 8.86, 0, -1.49, -7 };
             CollectionAssert.AreEqual(wait, res);
         }
     }

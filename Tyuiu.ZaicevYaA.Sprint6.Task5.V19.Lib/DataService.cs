@@ -16,10 +16,12 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19.Lib
             {
                 if (!string.IsNullOrWhiteSpace(line))
                 {
-                    string[] values = line.Split(' ');
+                    string cleanLine = line.Replace("[", "").Replace("]", "").Replace("(", "").Replace(")", "");
+                    string[] values = cleanLine.Split(',');
+
                     foreach (string value in values)
                     {
-                        if (double.TryParse(value, out double num))
+                        if (double.TryParse(value.Trim(), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double num))
                         {
                             Array.Resize(ref numbers, numbers.Length + 1);
                             numbers[numbers.Length - 1] = Math.Round(num, 3);

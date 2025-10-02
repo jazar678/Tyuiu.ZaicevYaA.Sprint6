@@ -35,6 +35,8 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
 
             double[] nums = ds.LoadFromDataFile(path);
 
+            dataGridViewNums_ZYA.Rows.Clear();
+
             for (int i = 0; i < nums.Length; i++)
             {
                 if (nums[i] % 1 == 0)
@@ -48,6 +50,12 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task5.V19
         private void buttonHelp_ZYA_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Таск 5 выполнил студент группы ПКТб-24-1 Зайцев Ярослав Александрович", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            this.chartDiag_ZYA.ChartAreas[0].AxisX.Title = "Ось X";
+            this.chartDiag_ZYA.ChartAreas[0].AxisY.Title = "Ось Y";
         }
     }
 }
