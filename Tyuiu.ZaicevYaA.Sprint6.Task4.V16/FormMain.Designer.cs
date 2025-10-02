@@ -20,205 +20,205 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            panelTop_ZYА = new Panel();
-            groupBoxInput_ZYА = new GroupBox();
-            textBoxStop_ZYА = new TextBox();
-            labelStop_ZYА = new Label();
-            textBoxStart_ZYА = new TextBox();
-            labelStart_ZYА = new Label();
-            groupBoxOutput_ZYА = new GroupBox();
-            textBoxResult_ZYА = new TextBox();
-            panelBottom_ZYА = new Panel();
-            buttonHelp_ZYА = new Button();
-            buttonDone_ZYА = new Button();
-            chartFunction_ZYА = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            panelTop_ZYА.SuspendLayout();
-            groupBoxInput_ZYА.SuspendLayout();
-            groupBoxOutput_ZYА.SuspendLayout();
-            panelBottom_ZYА.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chartFunction_ZYА).BeginInit();
+            panelTop_ZY = new Panel();
+            groupBoxInput_ZY = new GroupBox();
+            textBoxStop_ZY = new TextBox();
+            labelStop_ZY = new Label();
+            textBoxStart_ZY = new TextBox();
+            labelStart_ZY = new Label();
+            groupBoxOutput_ZY = new GroupBox();
+            textBoxResult_ZY = new TextBox();
+            panelBottom_ZY = new Panel();
+            buttonHelp_ZY = new Button();
+            buttonSave_ZY = new Button();
+            buttonDone_ZY = new Button();
+            chartFunction_ZY = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panelTop_ZY.SuspendLayout();
+            groupBoxInput_ZY.SuspendLayout();
+            groupBoxOutput_ZY.SuspendLayout();
+            panelBottom_ZY.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartFunction_ZY).BeginInit();
             SuspendLayout();
             // 
-            // panelTop_ZYА
+            // panelTop_ZY
             // 
-            panelTop_ZYА.Controls.Add(groupBoxInput_ZYА);
-            panelTop_ZYА.Dock = DockStyle.Top;
-            panelTop_ZYА.Location = new Point(0, 0);
-            panelTop_ZYА.Margin = new Padding(4, 3, 4, 3);
-            panelTop_ZYА.Name = "panelTop_ZYА";
-            panelTop_ZYА.Size = new Size(1031, 92);
-            panelTop_ZYА.TabIndex = 0;
+            panelTop_ZY.Controls.Add(groupBoxInput_ZY);
+            panelTop_ZY.Controls.Add(groupBoxOutput_ZY);
+            panelTop_ZY.Dock = DockStyle.Top;
+            panelTop_ZY.Location = new Point(0, 0);
+            panelTop_ZY.Name = "panelTop_ZY";
+            panelTop_ZY.Size = new Size(702, 188);
+            panelTop_ZY.TabIndex = 0;
             // 
-            // groupBoxInput_ZYА
+            // groupBoxInput_ZY
             // 
-            groupBoxInput_ZYА.Controls.Add(textBoxStop_ZYА);
-            groupBoxInput_ZYА.Controls.Add(labelStop_ZYА);
-            groupBoxInput_ZYА.Controls.Add(textBoxStart_ZYА);
-            groupBoxInput_ZYА.Controls.Add(labelStart_ZYА);
-            groupBoxInput_ZYА.Location = new Point(14, 14);
-            groupBoxInput_ZYА.Margin = new Padding(4, 3, 4, 3);
-            groupBoxInput_ZYА.Name = "groupBoxInput_ZYА";
-            groupBoxInput_ZYА.Padding = new Padding(4, 3, 4, 3);
-            groupBoxInput_ZYА.Size = new Size(350, 69);
-            groupBoxInput_ZYА.TabIndex = 0;
-            groupBoxInput_ZYА.TabStop = false;
-            groupBoxInput_ZYА.Text = "Ввод данных";
+            groupBoxInput_ZY.Controls.Add(textBoxStop_ZY);
+            groupBoxInput_ZY.Controls.Add(labelStop_ZY);
+            groupBoxInput_ZY.Controls.Add(textBoxStart_ZY);
+            groupBoxInput_ZY.Controls.Add(labelStart_ZY);
+            groupBoxInput_ZY.Location = new Point(10, 11);
+            groupBoxInput_ZY.Name = "groupBoxInput_ZY";
+            groupBoxInput_ZY.Size = new Size(262, 164);
+            groupBoxInput_ZY.TabIndex = 0;
+            groupBoxInput_ZY.TabStop = false;
+            groupBoxInput_ZY.Text = "Ввод данных";
             // 
-            // textBoxStop_ZYА
+            // textBoxStop_ZY
             // 
-            textBoxStop_ZYА.Location = new Point(233, 29);
-            textBoxStop_ZYА.Margin = new Padding(4, 3, 4, 3);
-            textBoxStop_ZYА.Name = "textBoxStop_ZYА";
-            textBoxStop_ZYА.Size = new Size(93, 23);
-            textBoxStop_ZYА.TabIndex = 3;
-            textBoxStop_ZYА.Text = "5";
+            textBoxStop_ZY.Location = new Point(131, 75);
+            textBoxStop_ZY.Name = "textBoxStop_ZY";
+            textBoxStop_ZY.Size = new Size(88, 23);
+            textBoxStop_ZY.TabIndex = 3;
+            textBoxStop_ZY.Text = "5";
             // 
-            // labelStop_ZYА
+            // labelStop_ZY
             // 
-            labelStop_ZYА.AutoSize = true;
-            labelStop_ZYА.Location = new Point(175, 32);
-            labelStop_ZYА.Margin = new Padding(4, 0, 4, 0);
-            labelStop_ZYА.Name = "labelStop_ZYА";
-            labelStop_ZYА.Size = new Size(44, 15);
-            labelStop_ZYА.TabIndex = 2;
-            labelStop_ZYА.Text = "Конец:";
+            labelStop_ZY.AutoSize = true;
+            labelStop_ZY.Location = new Point(18, 78);
+            labelStop_ZY.Name = "labelStop_ZY";
+            labelStop_ZY.Size = new Size(109, 15);
+            labelStop_ZY.TabIndex = 2;
+            labelStop_ZY.Text = "Конец шага (stop):";
             // 
-            // textBoxStart_ZYА
+            // textBoxStart_ZY
             // 
-            textBoxStart_ZYА.Location = new Point(70, 29);
-            textBoxStart_ZYА.Margin = new Padding(4, 3, 4, 3);
-            textBoxStart_ZYА.Name = "textBoxStart_ZYА";
-            textBoxStart_ZYА.Size = new Size(93, 23);
-            textBoxStart_ZYА.TabIndex = 1;
-            textBoxStart_ZYА.Text = "-5";
+            textBoxStart_ZY.Location = new Point(131, 38);
+            textBoxStart_ZY.Name = "textBoxStart_ZY";
+            textBoxStart_ZY.Size = new Size(88, 23);
+            textBoxStart_ZY.TabIndex = 1;
+            textBoxStart_ZY.Text = "-5";
             // 
-            // labelStart_ZYА
+            // labelStart_ZY
             // 
-            labelStart_ZYА.AutoSize = true;
-            labelStart_ZYА.Location = new Point(12, 32);
-            labelStart_ZYА.Margin = new Padding(4, 0, 4, 0);
-            labelStart_ZYА.Name = "labelStart_ZYА";
-            labelStart_ZYА.Size = new Size(41, 15);
-            labelStart_ZYА.TabIndex = 0;
-            labelStart_ZYА.Text = "Старт:";
+            labelStart_ZY.AutoSize = true;
+            labelStart_ZY.Location = new Point(18, 40);
+            labelStart_ZY.Name = "labelStart_ZY";
+            labelStart_ZY.Size = new Size(106, 15);
+            labelStart_ZY.TabIndex = 0;
+            labelStart_ZY.Text = "Старт шага (start):";
             // 
-            // groupBoxOutput_ZYА
+            // groupBoxOutput_ZY
             // 
-            groupBoxOutput_ZYА.Controls.Add(textBoxResult_ZYА);
-            groupBoxOutput_ZYА.Dock = DockStyle.Left;
-            groupBoxOutput_ZYА.Location = new Point(0, 92);
-            groupBoxOutput_ZYА.Margin = new Padding(4, 3, 4, 3);
-            groupBoxOutput_ZYА.Name = "groupBoxOutput_ZYА";
-            groupBoxOutput_ZYА.Padding = new Padding(4, 3, 4, 3);
-            groupBoxOutput_ZYА.Size = new Size(350, 440);
-            groupBoxOutput_ZYА.TabIndex = 1;
-            groupBoxOutput_ZYА.TabStop = false;
-            groupBoxOutput_ZYА.Text = "Вывод данных";
+            groupBoxOutput_ZY.Controls.Add(textBoxResult_ZY);
+            groupBoxOutput_ZY.Location = new Point(289, 11);
+            groupBoxOutput_ZY.Name = "groupBoxOutput_ZY";
+            groupBoxOutput_ZY.Size = new Size(401, 164);
+            groupBoxOutput_ZY.TabIndex = 1;
+            groupBoxOutput_ZY.TabStop = false;
+            groupBoxOutput_ZY.Text = "Вывод данных";
             // 
-            // textBoxResult_ZYА
+            // textBoxResult_ZY
             // 
-            textBoxResult_ZYА.Dock = DockStyle.Fill;
-            textBoxResult_ZYА.Location = new Point(4, 19);
-            textBoxResult_ZYА.Margin = new Padding(4, 3, 4, 3);
-            textBoxResult_ZYА.Multiline = true;
-            textBoxResult_ZYА.Name = "textBoxResult_ZYА";
-            textBoxResult_ZYА.ReadOnly = true;
-            textBoxResult_ZYА.ScrollBars = ScrollBars.Vertical;
-            textBoxResult_ZYА.Size = new Size(342, 418);
-            textBoxResult_ZYА.TabIndex = 0;
+            textBoxResult_ZY.Dock = DockStyle.Fill;
+            textBoxResult_ZY.Location = new Point(3, 19);
+            textBoxResult_ZY.Multiline = true;
+            textBoxResult_ZY.Name = "textBoxResult_ZY";
+            textBoxResult_ZY.ReadOnly = true;
+            textBoxResult_ZY.ScrollBars = ScrollBars.Vertical;
+            textBoxResult_ZY.Size = new Size(395, 142);
+            textBoxResult_ZY.TabIndex = 0;
             // 
-            // panelBottom_ZYА
+            // panelBottom_ZY
             // 
-            panelBottom_ZYА.Controls.Add(buttonHelp_ZYА);
-            panelBottom_ZYА.Controls.Add(buttonDone_ZYА);
-            panelBottom_ZYА.Dock = DockStyle.Bottom;
-            panelBottom_ZYА.Location = new Point(350, 474);
-            panelBottom_ZYА.Margin = new Padding(4, 3, 4, 3);
-            panelBottom_ZYА.Name = "panelBottom_ZYА";
-            panelBottom_ZYА.Size = new Size(681, 58);
-            panelBottom_ZYА.TabIndex = 2;
+            panelBottom_ZY.Controls.Add(buttonHelp_ZY);
+            panelBottom_ZY.Controls.Add(buttonSave_ZY);
+            panelBottom_ZY.Controls.Add(buttonDone_ZY);
+            panelBottom_ZY.Dock = DockStyle.Bottom;
+            panelBottom_ZY.Location = new Point(0, 382);
+            panelBottom_ZY.Name = "panelBottom_ZY";
+            panelBottom_ZY.Size = new Size(702, 47);
+            panelBottom_ZY.TabIndex = 1;
             // 
-            // buttonHelp_ZYА
+            // buttonHelp_ZY
             // 
-            buttonHelp_ZYА.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonHelp_ZYА.BackColor = SystemColors.ActiveCaption;
-            buttonHelp_ZYА.Location = new Point(572, 17);
-            buttonHelp_ZYА.Margin = new Padding(4, 3, 4, 3);
-            buttonHelp_ZYА.Name = "buttonHelp_ZYА";
-            buttonHelp_ZYА.Size = new Size(93, 29);
-            buttonHelp_ZYА.TabIndex = 1;
-            buttonHelp_ZYА.Text = "Справка";
-            buttonHelp_ZYА.UseVisualStyleBackColor = false;
-            buttonHelp_ZYА.Click += buttonHelp_ZYА_Click;
+            buttonHelp_ZY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonHelp_ZY.BackColor = SystemColors.ActiveCaption;
+            buttonHelp_ZY.Location = new Point(626, 14);
+            buttonHelp_ZY.Name = "buttonHelp_ZY";
+            buttonHelp_ZY.Size = new Size(66, 22);
+            buttonHelp_ZY.TabIndex = 2;
+            buttonHelp_ZY.Text = "Справка";
+            buttonHelp_ZY.UseVisualStyleBackColor = false;
+            buttonHelp_ZY.Click += buttonHelp_ZY_Click;
             // 
-            // buttonDone_ZYА
+            // buttonSave_ZY
             // 
-            buttonDone_ZYА.BackColor = Color.Green;
-            buttonDone_ZYА.Location = new Point(18, 17);
-            buttonDone_ZYА.Margin = new Padding(4, 3, 4, 3);
-            buttonDone_ZYА.Name = "buttonDone_ZYА";
-            buttonDone_ZYА.Size = new Size(93, 29);
-            buttonDone_ZYА.TabIndex = 0;
-            buttonDone_ZYА.Text = "Выполнить";
-            buttonDone_ZYА.UseVisualStyleBackColor = false;
-            buttonDone_ZYА.Click += buttonDone_ZYА_Click;
+            buttonSave_ZY.BackColor = Color.FromArgb(255, 224, 192);
+            buttonSave_ZY.Enabled = false;
+            buttonSave_ZY.Location = new Point(82, 14);
+            buttonSave_ZY.Name = "buttonSave_ZY";
+            buttonSave_ZY.Size = new Size(66, 22);
+            buttonSave_ZY.TabIndex = 1;
+            buttonSave_ZY.Text = "Сохранить";
+            buttonSave_ZY.UseVisualStyleBackColor = false;
+            buttonSave_ZY.Click += buttonSave_ZY_Click;
             // 
-            // chartFunction_ZYА
+            // buttonDone_ZY
+            // 
+            buttonDone_ZY.BackColor = Color.Green;
+            buttonDone_ZY.Location = new Point(11, 14);
+            buttonDone_ZY.Name = "buttonDone_ZY";
+            buttonDone_ZY.Size = new Size(66, 22);
+            buttonDone_ZY.TabIndex = 0;
+            buttonDone_ZY.Text = "Выполнить";
+            buttonDone_ZY.UseVisualStyleBackColor = false;
+            buttonDone_ZY.Click += buttonDone_ZY_Click;
+            // 
+            // chartFunction_ZY
             // 
             chartArea1.Name = "ChartArea1";
-            chartFunction_ZYА.ChartAreas.Add(chartArea1);
-            chartFunction_ZYА.Dock = DockStyle.Fill;
+            chartFunction_ZY.ChartAreas.Add(chartArea1);
+            chartFunction_ZY.Dock = DockStyle.Fill;
             legend1.Name = "Legend1";
-            chartFunction_ZYА.Legends.Add(legend1);
-            chartFunction_ZYА.Location = new Point(350, 92);
-            chartFunction_ZYА.Margin = new Padding(4, 3, 4, 3);
-            chartFunction_ZYА.Name = "chartFunction_ZYА";
+            chartFunction_ZY.Legends.Add(legend1);
+            chartFunction_ZY.Location = new Point(0, 188);
+            chartFunction_ZY.Name = "chartFunction_ZY";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
             series1.Name = "F(x)";
-            chartFunction_ZYА.Series.Add(series1);
-            chartFunction_ZYА.Size = new Size(681, 382);
-            chartFunction_ZYА.TabIndex = 3;
-            chartFunction_ZYА.Text = "chart1";
+            chartFunction_ZY.Series.Add(series1);
+            chartFunction_ZY.Size = new Size(702, 194);
+            chartFunction_ZY.TabIndex = 2;
+            chartFunction_ZY.Text = "chart1";
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 532);
-            Controls.Add(chartFunction_ZYА);
-            Controls.Add(panelBottom_ZYА);
-            Controls.Add(groupBoxOutput_ZYА);
-            Controls.Add(panelTop_ZYА);
-            Margin = new Padding(4, 3, 4, 3);
-            MinimumSize = new Size(1047, 571);
+            ClientSize = new Size(702, 429);
+            Controls.Add(chartFunction_ZY);
+            Controls.Add(panelBottom_ZY);
+            Controls.Add(panelTop_ZY);
+            MinimumSize = new Size(718, 468);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Спринт 6 | Таск 4 | Вариант 16 | Зайцев Я.А. ПКТб-24-1";
-            panelTop_ZYА.ResumeLayout(false);
-            groupBoxInput_ZYА.ResumeLayout(false);
-            groupBoxInput_ZYА.PerformLayout();
-            groupBoxOutput_ZYА.ResumeLayout(false);
-            groupBoxOutput_ZYА.PerformLayout();
-            panelBottom_ZYА.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)chartFunction_ZYА).EndInit();
+            Text = "Спринт 6 | Таск 4 | Вариант 16 | Зайцев Я.А.";
+            panelTop_ZY.ResumeLayout(false);
+            groupBoxInput_ZY.ResumeLayout(false);
+            groupBoxInput_ZY.PerformLayout();
+            groupBoxOutput_ZY.ResumeLayout(false);
+            groupBoxOutput_ZY.PerformLayout();
+            panelBottom_ZY.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartFunction_ZY).EndInit();
             ResumeLayout(false);
+
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelTop_ZYА;
-        private System.Windows.Forms.GroupBox groupBoxInput_ZYА;
-        private System.Windows.Forms.TextBox textBoxStop_ZYА;
-        private System.Windows.Forms.Label labelStop_ZYА;
-        private System.Windows.Forms.TextBox textBoxStart_ZYА;
-        private System.Windows.Forms.Label labelStart_ZYА;
-        private System.Windows.Forms.GroupBox groupBoxOutput_ZYА;
-        private System.Windows.Forms.TextBox textBoxResult_ZYА;
-        private System.Windows.Forms.Panel panelBottom_ZYА;
-        private System.Windows.Forms.Button buttonHelp_ZYА;
-        private System.Windows.Forms.Button buttonDone_ZYА;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartFunction_ZYА;
+        private System.Windows.Forms.Panel panelTop_ZY;
+        private System.Windows.Forms.GroupBox groupBoxInput_ZY;
+        private System.Windows.Forms.TextBox textBoxStop_ZY;
+        private System.Windows.Forms.Label labelStop_ZY;
+        private System.Windows.Forms.TextBox textBoxStart_ZY;
+        private System.Windows.Forms.Label labelStart_ZY;
+        private System.Windows.Forms.GroupBox groupBoxOutput_ZY;
+        private System.Windows.Forms.TextBox textBoxResult_ZY;
+        private System.Windows.Forms.Panel panelBottom_ZY;
+        private System.Windows.Forms.Button buttonHelp_ZY;
+        private System.Windows.Forms.Button buttonSave_ZY;
+        private System.Windows.Forms.Button buttonDone_ZY;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFunction_ZY;
     }
 }

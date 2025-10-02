@@ -1,6 +1,13 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.ZaicevYA.Sprint6.Task4.V16.Lib;
 
 namespace Tyuiu.ZaicevYA.Sprint6.Task4.V16
@@ -12,66 +19,75 @@ namespace Tyuiu.ZaicevYA.Sprint6.Task4.V16
             InitializeComponent();
         }
 
-        private void buttonDone_ZYА_Click(object sender, EventArgs e)
-        {
-            DataService ds = new DataService();
+        DataService ds = new DataService();
 
+        private void buttonDone_ZY_Click(object sender, EventArgs e)
+        {
             try
             {
-                int startValue = Convert.ToInt32(textBoxStart_ZYА.Text);
-                int stopValue = Convert.ToInt32(textBoxStop_ZYА.Text);
+                int startValue = Convert.ToInt32(textBoxStart_ZY.Text);
+                int stopValue = Convert.ToInt32(textBoxStop_ZY.Text);
+
+                if (startValue > stopValue)
+                {
+                    MessageBox.Show("Стартовое значение не может быть больше конечного!", "Ошибка",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 double[] valueArray = ds.GetMassFunction(startValue, stopValue);
 
-                // Вывод в textBox
-                textBoxResult_ZYА.Text = "Результаты табулирования функции F(x) = cos(x)/(x-0.4) + sin(x)*8x + 2:\r\n";
-                textBoxResult_ZYА.AppendText("Старт шага: " + startValue + "\r\n");
-                textBoxResult_ZYА.AppendText("Конец шага: " + stopValue + "\r\n");
-                textBoxResult_ZYА.AppendText("-----------------------------------\r\n");
+                textBoxResult_ZY.Text = "";
 
+                chartFunction_ZY.Series[0].Points.Clear();
                 for (int i = 0; i < valueArray.Length; i++)
                 {
-                    textBoxResult_ZYА.AppendText($"F({startValue + i}) = {valueArray[i]}\r\n");
+                    textBoxResult_ZY.AppendText(valueArray[i].ToString("F2") + Environment.NewLine);
+                    chartFunction_ZY.Series[0].Points.AddXY(startValue + i, valueArray[i]);
                 }
 
-                // Сохранение в файл
-                string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask4V16.txt";
-                using (StreamWriter writer = new StreamWriter(path))
-                {
-                    writer.WriteLine("Результаты табулирования функции F(x) = cos(x)/(x-0.4) + sin(x)*8x + 2:");
-                    writer.WriteLine($"Старт шага: {startValue}");
-                    writer.WriteLine($"Конец шага: {stopValue}");
-                    writer.WriteLine("-----------------------------------");
-
-                    for (int i = 0; i < valueArray.Length; i++)
-                    {
-                        writer.WriteLine($"F({startValue + i}) = {valueArray[i]}");
-                    }
-                }
-
-                // Построение графика
-                chartFunction_ZYА.ChartAreas[0].AxisX.Title = "Ось X";
-                chartFunction_ZYА.ChartAreas[0].AxisY.Title = "Ось F(x)";
-                chartFunction_ZYА.Series[0].Points.Clear();
-
-                for (int i = 0; i < valueArray.Length; i++)
-                {
-                    chartFunction_ZYА.Series[0].Points.AddXY(startValue + i, valueArray[i]);
-                }
-
-                MessageBox.Show("Результаты сохранены в файл: " + path, "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                buttonSave_ZY.Enabled = true;
             }
             catch
             {
-                MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введены неверные данные!", "Ошибка",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void buttonHelp_ZYА_Click(object sender, EventArgs e)
+        private void buttonSave_ZY_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Табулирование функции F(x) = cos(x)/(x-0.4) + sin(x)*8x + 2\n" +
+            try
+            {
+                int startValue = Convert.ToInt32(textBoxStart_ZY.Text);
+                int stopValue = Convert.ToInt32(textBoxStop_ZY.Text);
+
+                string path = ds.SaveToFile(startValue, stopValue);
+
+                DialogResult result = MessageBox.Show("Файл " + path + " сохранен успешно!\n Открыть его в блокноте?",
+                    "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process txt = new System.Diagnostics.Process();
+                    txt.StartInfo.FileName = "notepad.exe";
+                    txt.StartInfo.Arguments = path;
+                    txt.Start();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Сбой при сохранении файла!", "Ошибка",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonHelp_ZY_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Табулирование функции F(x) = cos(x)/(x - 0.4) + sin(x)*8*x + 2\n" +
                           "на диапазоне от -5 до 5 с шагом 1.\n\n" +
-                          "Выполнил: Зайцев Я.А. ПКТб-24-1", "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                          "Выполнил: Зайцев Я.А. | ПКТб-24-1",
+                          "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

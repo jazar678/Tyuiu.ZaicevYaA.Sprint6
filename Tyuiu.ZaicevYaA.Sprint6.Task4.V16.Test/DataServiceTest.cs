@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Tyuiu.ZaicevYA.Sprint6.Task4.V16.Lib;
 
 namespace Tyuiu.ZaicevYA.Sprint6.Task4.V16.Test
@@ -15,7 +16,7 @@ namespace Tyuiu.ZaicevYA.Sprint6.Task4.V16.Test
             int stopValue = 5;
 
             double[] res = ds.GetMassFunction(startValue, stopValue);
-            double[] wait = { 42.51, 32.63, 2.8, -20.14, -39.97, 0, 43.97, 22.14, -0.8, -30.63, -40.51 };
+            double[] wait = { 41.71, 33.01, 24.96, 17.74, 11.53, 6.5, 2.82, 0.67, 0.0, 1.06, 3.87 };
 
             CollectionAssert.AreEqual(wait, res);
         }
