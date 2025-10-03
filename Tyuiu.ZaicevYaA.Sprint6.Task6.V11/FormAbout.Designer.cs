@@ -26,16 +26,16 @@
             // labelInfo_ZYA
             // 
             labelInfo_ZYA.AutoSize = true;
-            labelInfo_ZYA.Location = new Point(142, 23);
+            labelInfo_ZYA.Location = new Point(177, 23);
             labelInfo_ZYA.Margin = new Padding(4, 0, 4, 0);
             labelInfo_ZYA.Name = "labelInfo_ZYA";
             labelInfo_ZYA.Size = new Size(282, 75);
             labelInfo_ZYA.TabIndex = 0;
-            labelInfo_ZYA.Text = "Разработчик: Зайцев Ярослав Александрович\r\nГруппа: ПКТб-24-1\r\n\r\nПрограмма разработана в рамках изучения C#\r\nТюменский индустриальный университет (c) 2024";
+            labelInfo_ZYA.Text = "Разработчик: Зайцев Ярослав Александрович\r\nГруппа: ПКТб-24-1\r\n\r\nПрограмма разработана в рамках изучения C#\r\nТюменский индустриальный университет (c) 2023";
             // 
             // buttonOk_ZYA
             // 
-            buttonOk_ZYA.Location = new Point(292, 115);
+            buttonOk_ZYA.Location = new Point(201, 124);
             buttonOk_ZYA.Margin = new Padding(4, 3, 4, 3);
             buttonOk_ZYA.Name = "buttonOk_ZYA";
             buttonOk_ZYA.Size = new Size(88, 27);
@@ -46,12 +46,11 @@
             // 
             // pictureBoxLogo_ZYA
             // 
-            pictureBoxLogo_ZYA.BackColor = SystemColors.Window;
             pictureBoxLogo_ZYA.Image = Properties.Resources.IMG_2954;
-            pictureBoxLogo_ZYA.Location = new Point(13, 12);
+            pictureBoxLogo_ZYA.Location = new Point(14, 23);
             pictureBoxLogo_ZYA.Margin = new Padding(4, 3, 4, 3);
             pictureBoxLogo_ZYA.Name = "pictureBoxLogo_ZYA";
-            pictureBoxLogo_ZYA.Size = new Size(145, 128);
+            pictureBoxLogo_ZYA.Size = new Size(155, 128);
             pictureBoxLogo_ZYA.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo_ZYA.TabIndex = 2;
             pictureBoxLogo_ZYA.TabStop = false;
@@ -60,10 +59,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(437, 163);
-            Controls.Add(labelInfo_ZYA);
+            ClientSize = new Size(472, 163);
             Controls.Add(pictureBoxLogo_ZYA);
             Controls.Add(buttonOk_ZYA);
+            Controls.Add(labelInfo_ZYA);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;

@@ -35,4 +35,3 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
         }
     }
 }
-}

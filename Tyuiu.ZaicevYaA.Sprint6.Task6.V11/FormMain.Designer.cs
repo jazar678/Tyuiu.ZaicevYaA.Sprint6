@@ -62,7 +62,7 @@
             // 
             // buttonDone_ZYA
             // 
-            buttonDone_ZYA.BackColor = Color.FromArgb(0, 192, 0);
+            buttonDone_ZYA.BackColor = Color.Lime;
             buttonDone_ZYA.Enabled = false;
             buttonDone_ZYA.Location = new Point(418, 275);
             buttonDone_ZYA.Margin = new Padding(4, 3, 4, 3);
