@@ -13,8 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
             this.buttonOpenFile_ZYA = new System.Windows.Forms.Button();
@@ -23,8 +21,8 @@
             this.textBoxIn_ZYA = new System.Windows.Forms.TextBox();
             this.textBoxOut_ZYA = new System.Windows.Forms.TextBox();
             this.openFileDialogTask_ZYA = new System.Windows.Forms.OpenFileDialog();
-            this.labelInput = new System.Windows.Forms.Label();
-            this.labelOutput = new System.Windows.Forms.Label();
+            this.labelInput_ZYA = new System.Windows.Forms.Label();
+            this.labelOutput_ZYA = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonOpenFile_ZYA
@@ -81,31 +79,31 @@
             // openFileDialogTask_ZYA
             // 
             this.openFileDialogTask_ZYA.FileName = "openFileDialog1";
-            this.openFileDialogTask_ZYA.Filter = "Текстовые файлы|*.txt";
+            this.openFileDialogTask_ZYA.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
             // 
-            // labelInput
+            // labelInput_ZYA
             // 
-            this.labelInput.AutoSize = true;
-            this.labelInput.Location = new System.Drawing.Point(12, 54);
-            this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(89, 13);
-            this.labelInput.TabIndex = 5;
-            this.labelInput.Text = "Исходный файл:";
+            this.labelInput_ZYA.AutoSize = true;
+            this.labelInput_ZYA.Location = new System.Drawing.Point(12, 54);
+            this.labelInput_ZYA.Name = "labelInput_ZYA";
+            this.labelInput_ZYA.Size = new System.Drawing.Size(89, 13);
+            this.labelInput_ZYA.TabIndex = 5;
+            this.labelInput_ZYA.Text = "Исходный файл:";
             // 
-            // labelOutput
+            // labelOutput_ZYA
             // 
-            this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(399, 54);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(65, 13);
-            this.labelOutput.TabIndex = 6;
-            this.labelOutput.Text = "Результат:";
+            this.labelOutput_ZYA.AutoSize = true;
+            this.labelOutput_ZYA.Location = new System.Drawing.Point(399, 54);
+            this.labelOutput_ZYA.Name = "labelOutput_ZYA";
+            this.labelOutput_ZYA.Size = new System.Drawing.Size(65, 13);
+            this.labelOutput_ZYA.TabIndex = 6;
+            this.labelOutput_ZYA.Text = "Результат:";
             // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(794, 461);
-            this.Controls.Add(this.labelOutput);
-            this.Controls.Add(this.labelInput);
+            this.Controls.Add(this.labelOutput_ZYA);
+            this.Controls.Add(this.labelInput_ZYA);
             this.Controls.Add(this.textBoxOut_ZYA);
             this.Controls.Add(this.textBoxIn_ZYA);
             this.Controls.Add(this.buttonHelp_ZYA);
@@ -120,15 +118,13 @@
 
         }
 
-        #endregion
-
         private System.Windows.Forms.Button buttonOpenFile_ZYA;
         private System.Windows.Forms.Button buttonDone_ZYA;
         private System.Windows.Forms.Button buttonHelp_ZYA;
         private System.Windows.Forms.TextBox textBoxIn_ZYA;
         private System.Windows.Forms.TextBox textBoxOut_ZYA;
         private System.Windows.Forms.OpenFileDialog openFileDialogTask_ZYA;
-        private System.Windows.Forms.Label labelInput;
-        private System.Windows.Forms.Label labelOutput;
+        private System.Windows.Forms.Label labelInput_ZYA;
+        private System.Windows.Forms.Label labelOutput_ZYA;
     }
 }
