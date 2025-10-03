@@ -17,97 +17,118 @@
 
         private void InitializeComponent()
         {
-            this.textBoxIn = new System.Windows.Forms.TextBox();
-            this.textBoxOut = new System.Windows.Forms.TextBox();
-            this.buttonOpenFile = new System.Windows.Forms.Button();
-            this.buttonDone = new System.Windows.Forms.Button();
-            this.buttonHelp = new System.Windows.Forms.Button();
-            this.openFileDialogTask = new System.Windows.Forms.OpenFileDialog();
-            this.labelIn = new System.Windows.Forms.Label();
-            this.labelOut = new System.Windows.Forms.Label();
+            this.buttonOpenFile_ZYA = new System.Windows.Forms.Button();
+            this.buttonDone_ZYA = new System.Windows.Forms.Button();
+            this.buttonHelp_ZYA = new System.Windows.Forms.Button();
+            this.textBoxIn_ZYA = new System.Windows.Forms.TextBox();
+            this.textBoxOut_ZYA = new System.Windows.Forms.TextBox();
+            this.openFileDialogTask_ZYA = new System.Windows.Forms.OpenFileDialog();
+            this.labelInput = new System.Windows.Forms.Label();
+            this.labelOutput = new System.Windows.Forms.Label();
             this.SuspendLayout();
-
-            this.textBoxIn.Location = new System.Drawing.Point(12, 35);
-            this.textBoxIn.Multiline = true;
-            this.textBoxIn.Name = "textBoxIn";
-            this.textBoxIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxIn.Size = new System.Drawing.Size(400, 300);
-            this.textBoxIn.TabIndex = 0;
-
-            this.textBoxOut.Location = new System.Drawing.Point(430, 35);
-            this.textBoxOut.Multiline = true;
-            this.textBoxOut.Name = "textBoxOut";
-            this.textBoxOut.ReadOnly = true;
-            this.textBoxOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxOut.Size = new System.Drawing.Size(400, 300);
-            this.textBoxOut.TabIndex = 1;
-
-            this.buttonOpenFile.Location = new System.Drawing.Point(12, 350);
-            this.buttonOpenFile.Name = "buttonOpenFile";
-            this.buttonOpenFile.Size = new System.Drawing.Size(100, 30);
-            this.buttonOpenFile.TabIndex = 2;
-            this.buttonOpenFile.Text = "Открыть файл";
-            this.buttonOpenFile.UseVisualStyleBackColor = true;
-            this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
-
-            this.buttonDone.Enabled = false;
-            this.buttonDone.Location = new System.Drawing.Point(370, 350);
-            this.buttonDone.Name = "buttonDone";
-            this.buttonDone.Size = new System.Drawing.Size(100, 30);
-            this.buttonDone.TabIndex = 3;
-            this.buttonDone.Text = "Выполнить";
-            this.buttonDone.UseVisualStyleBackColor = true;
-            this.buttonDone.Click += new System.EventHandler(this.buttonDone_Click);
-
-            this.buttonHelp.Location = new System.Drawing.Point(730, 350);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(100, 30);
-            this.buttonHelp.TabIndex = 4;
-            this.buttonHelp.Text = "Справка";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
-
-            this.openFileDialogTask.FileName = "openFileDialog1";
-
-            this.labelIn.AutoSize = true;
-            this.labelIn.Location = new System.Drawing.Point(12, 15);
-            this.labelIn.Name = "labelIn";
-            this.labelIn.Size = new System.Drawing.Size(89, 13);
-            this.labelIn.TabIndex = 5;
-            this.labelIn.Text = "Входные данные:";
-
-            this.labelOut.AutoSize = true;
-            this.labelOut.Location = new System.Drawing.Point(427, 15);
-            this.labelOut.Name = "labelOut";
-            this.labelOut.Size = new System.Drawing.Size(69, 13);
-            this.labelOut.TabIndex = 6;
-            this.labelOut.Text = "Результат:";
-
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 391);
-            this.Controls.Add(this.labelOut);
-            this.Controls.Add(this.labelIn);
-            this.Controls.Add(this.buttonHelp);
-            this.Controls.Add(this.buttonDone);
-            this.Controls.Add(this.buttonOpenFile);
-            this.Controls.Add(this.textBoxOut);
-            this.Controls.Add(this.textBoxIn);
+            // 
+            // buttonOpenFile_ZYA
+            // 
+            this.buttonOpenFile_ZYA.Location = new System.Drawing.Point(12, 12);
+            this.buttonOpenFile_ZYA.Name = "buttonOpenFile_ZYA";
+            this.buttonOpenFile_ZYA.Size = new System.Drawing.Size(100, 30);
+            this.buttonOpenFile_ZYA.TabIndex = 0;
+            this.buttonOpenFile_ZYA.Text = "Открыть файл";
+            this.buttonOpenFile_ZYA.UseVisualStyleBackColor = true;
+            this.buttonOpenFile_ZYA.Click += new System.EventHandler(this.buttonOpenFile_ZYA_Click);
+            // 
+            // buttonDone_ZYA
+            // 
+            this.buttonDone_ZYA.Enabled = false;
+            this.buttonDone_ZYA.Location = new System.Drawing.Point(118, 12);
+            this.buttonDone_ZYA.Name = "buttonDone_ZYA";
+            this.buttonDone_ZYA.Size = new System.Drawing.Size(100, 30);
+            this.buttonDone_ZYA.TabIndex = 1;
+            this.buttonDone_ZYA.Text = "Выполнить";
+            this.buttonDone_ZYA.UseVisualStyleBackColor = true;
+            this.buttonDone_ZYA.Click += new System.EventHandler(this.buttonDone_ZYA_Click);
+            // 
+            // buttonHelp_ZYA
+            // 
+            this.buttonHelp_ZYA.Location = new System.Drawing.Point(682, 12);
+            this.buttonHelp_ZYA.Name = "buttonHelp_ZYA";
+            this.buttonHelp_ZYA.Size = new System.Drawing.Size(100, 30);
+            this.buttonHelp_ZYA.TabIndex = 2;
+            this.buttonHelp_ZYA.Text = "Справка";
+            this.buttonHelp_ZYA.UseVisualStyleBackColor = true;
+            this.buttonHelp_ZYA.Click += new System.EventHandler(this.buttonHelp_ZYA_Click);
+            // 
+            // textBoxIn_ZYA
+            // 
+            this.textBoxIn_ZYA.Location = new System.Drawing.Point(12, 70);
+            this.textBoxIn_ZYA.Multiline = true;
+            this.textBoxIn_ZYA.Name = "textBoxIn_ZYA";
+            this.textBoxIn_ZYA.ReadOnly = true;
+            this.textBoxIn_ZYA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxIn_ZYA.Size = new System.Drawing.Size(380, 379);
+            this.textBoxIn_ZYA.TabIndex = 3;
+            // 
+            // textBoxOut_ZYA
+            // 
+            this.textBoxOut_ZYA.Location = new System.Drawing.Point(402, 70);
+            this.textBoxOut_ZYA.Multiline = true;
+            this.textBoxOut_ZYA.Name = "textBoxOut_ZYA";
+            this.textBoxOut_ZYA.ReadOnly = true;
+            this.textBoxOut_ZYA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOut_ZYA.Size = new System.Drawing.Size(380, 379);
+            this.textBoxOut_ZYA.TabIndex = 4;
+            // 
+            // openFileDialogTask_ZYA
+            // 
+            this.openFileDialogTask_ZYA.FileName = "openFileDialog1";
+            this.openFileDialogTask_ZYA.Filter = "Текстовые файлы|*.txt";
+            // 
+            // labelInput
+            // 
+            this.labelInput.AutoSize = true;
+            this.labelInput.Location = new System.Drawing.Point(12, 54);
+            this.labelInput.Name = "labelInput";
+            this.labelInput.Size = new System.Drawing.Size(89, 13);
+            this.labelInput.TabIndex = 5;
+            this.labelInput.Text = "Исходный файл:";
+            // 
+            // labelOutput
+            // 
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Location = new System.Drawing.Point(399, 54);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(65, 13);
+            this.labelOutput.TabIndex = 6;
+            this.labelOutput.Text = "Результат:";
+            // 
+            // FormMain
+            // 
+            this.ClientSize = new System.Drawing.Size(794, 461);
+            this.Controls.Add(this.labelOutput);
+            this.Controls.Add(this.labelInput);
+            this.Controls.Add(this.textBoxOut_ZYA);
+            this.Controls.Add(this.textBoxIn_ZYA);
+            this.Controls.Add(this.buttonHelp_ZYA);
+            this.Controls.Add(this.buttonDone_ZYA);
+            this.Controls.Add(this.buttonOpenFile_ZYA);
+            this.MinimumSize = new System.Drawing.Size(810, 500);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Спринт 6 | Таск 6 | Вариант 11 | Зайцев Я.А.";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxIn;
-        private System.Windows.Forms.TextBox textBoxOut;
-        private System.Windows.Forms.Button buttonOpenFile;
-        private System.Windows.Forms.Button buttonDone;
-        private System.Windows.Forms.Button buttonHelp;
-        private System.Windows.Forms.OpenFileDialog openFileDialogTask;
-        private System.Windows.Forms.Label labelIn;
-        private System.Windows.Forms.Label labelOut;
+        private System.Windows.Forms.Button buttonOpenFile_ZYA;
+        private System.Windows.Forms.Button buttonDone_ZYA;
+        private System.Windows.Forms.Button buttonHelp_ZYA;
+        private System.Windows.Forms.TextBox textBoxIn_ZYA;
+        private System.Windows.Forms.TextBox textBoxOut_ZYA;
+        private System.Windows.Forms.OpenFileDialog openFileDialogTask_ZYA;
+        private System.Windows.Forms.Label labelInput;
+        private System.Windows.Forms.Label labelOutput;
     }
 }

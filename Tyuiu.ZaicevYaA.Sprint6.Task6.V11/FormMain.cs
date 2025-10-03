@@ -2,34 +2,39 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
 {
     public partial class FormMain : Form
     {
+        private string filePath;
+        private DataService ds;
+
         public FormMain()
         {
             InitializeComponent();
+            ds = new DataService();
         }
 
-        DataService ds = new DataService();
-        string filePath;
-
-        private void buttonOpenFile_Click(object sender, EventArgs e)
+        private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
         {
-            openFileDialogTask.ShowDialog();
-            filePath = openFileDialogTask.FileName;
-            textBoxIn.Text = File.ReadAllText(filePath);
-            buttonDone.Enabled = true;
+            if (openFileDialogTask_ZYA.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialogTask_ZYA.FileName;
+                textBoxIn_ZYA.Text = File.ReadAllText(filePath);
+                buttonDone_ZYA.Enabled = true;
+            }
         }
 
-        private void buttonDone_Click(object sender, EventArgs e)
+        private void buttonDone_ZYA_Click(object sender, EventArgs e)
         {
-            textBoxOut.Text = ds.CollectTextFromFile("", filePath);
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                textBoxOut_ZYA.Text = ds.CollectTextFromFile("", filePath);
+            }
         }
 
-        private void buttonHelp_Click(object sender, EventArgs e)
+        private void buttonHelp_ZYA_Click(object sender, EventArgs e)
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
