@@ -1,6 +1,6 @@
 using System;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
@@ -27,19 +27,22 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
             }
             else
             {
-                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл не выбран или не существует!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void buttonExecute_ZYA_Click(object sender, EventArgs e)
         {
-            if (File.Exists(openFilePath))
+            try
             {
-                textBoxOut_ZYA.Text = ds.CollectTextFromFile("test", openFilePath);
+                string result = ds.CollectTextFromFile("test", openFilePath);
+                textBoxOut_ZYA.Text = result;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Файл не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
