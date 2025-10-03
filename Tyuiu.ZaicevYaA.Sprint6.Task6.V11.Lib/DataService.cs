@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using tyuiu.cources.programming.interfaces.Sprint6;
-using Tyuiu.Courses.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
 {
