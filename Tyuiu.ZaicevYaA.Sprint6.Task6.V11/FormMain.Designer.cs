@@ -17,162 +17,127 @@
 
         private void InitializeComponent()
         {
-            panelTop = new Panel();
-            buttonHelp = new Button();
-            buttonOpenFile = new Button();
-            labelTask = new Label();
-            panelBottom = new Panel();
-            splitContainer = new SplitContainer();
-            textBoxIn = new TextBox();
-            textBoxOut = new TextBox();
-            openFileDialogTask = new OpenFileDialog();
-            panelTop.SuspendLayout();
-            panelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
-            splitContainer.Panel1.SuspendLayout();
-            splitContainer.Panel2.SuspendLayout();
-            splitContainer.SuspendLayout();
+            textBoxIn_ZYA = new TextBox();
+            textBoxOut_ZYA = new TextBox();
+            buttonOpenFile_ZYA = new Button();
+            buttonDone_ZYA = new Button();
+            buttonHelp_ZYA = new Button();
+            openFileDialogTask_ZYA = new OpenFileDialog();
+            labelIn_ZYA = new Label();
+            labelOut_ZYA = new Label();
             SuspendLayout();
             // 
-            // panelTop
+            // textBoxIn_ZYA
             // 
-            panelTop.Controls.Add(buttonHelp);
-            panelTop.Controls.Add(buttonOpenFile);
-            panelTop.Controls.Add(labelTask);
-            panelTop.Dock = DockStyle.Top;
-            panelTop.Location = new Point(0, 0);
-            panelTop.Margin = new Padding(4, 3, 4, 3);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new Size(933, 115);
-            panelTop.TabIndex = 0;
+            textBoxIn_ZYA.Location = new Point(14, 40);
+            textBoxIn_ZYA.Margin = new Padding(4, 3, 4, 3);
+            textBoxIn_ZYA.Multiline = true;
+            textBoxIn_ZYA.Name = "textBoxIn_ZYA";
+            textBoxIn_ZYA.ScrollBars = ScrollBars.Vertical;
+            textBoxIn_ZYA.Size = new Size(736, 227);
+            textBoxIn_ZYA.TabIndex = 0;
             // 
-            // buttonHelp
+            // textBoxOut_ZYA
             // 
-            buttonHelp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonHelp.BackColor = SystemColors.ActiveCaption;
-            buttonHelp.Location = new Point(832, 14);
-            buttonHelp.Margin = new Padding(4, 3, 4, 3);
-            buttonHelp.Name = "buttonHelp";
-            buttonHelp.Size = new Size(88, 27);
-            buttonHelp.TabIndex = 2;
-            buttonHelp.Text = "Справка";
-            buttonHelp.UseVisualStyleBackColor = false;
-            buttonHelp.Click += buttonHelp_Click;
+            textBoxOut_ZYA.Location = new Point(14, 306);
+            textBoxOut_ZYA.Margin = new Padding(4, 3, 4, 3);
+            textBoxOut_ZYA.Multiline = true;
+            textBoxOut_ZYA.Name = "textBoxOut_ZYA";
+            textBoxOut_ZYA.ReadOnly = true;
+            textBoxOut_ZYA.ScrollBars = ScrollBars.Vertical;
+            textBoxOut_ZYA.Size = new Size(736, 227);
+            textBoxOut_ZYA.TabIndex = 1;
             // 
-            // buttonOpenFile
+            // buttonOpenFile_ZYA
             // 
-            buttonOpenFile.BackColor = Color.FromArgb(0, 192, 0);
-            buttonOpenFile.Location = new Point(14, 67);
-            buttonOpenFile.Margin = new Padding(4, 3, 4, 3);
-            buttonOpenFile.Name = "buttonOpenFile";
-            buttonOpenFile.Size = new Size(88, 27);
-            buttonOpenFile.TabIndex = 1;
-            buttonOpenFile.Text = "Открыть";
-            buttonOpenFile.UseVisualStyleBackColor = false;
-            buttonOpenFile.Click += buttonOpenFile_Click;
+            buttonOpenFile_ZYA.BackColor = Color.FromArgb(192, 192, 255);
+            buttonOpenFile_ZYA.Location = new Point(567, 275);
+            buttonOpenFile_ZYA.Margin = new Padding(4, 3, 4, 3);
+            buttonOpenFile_ZYA.Name = "buttonOpenFile_ZYA";
+            buttonOpenFile_ZYA.Size = new Size(88, 27);
+            buttonOpenFile_ZYA.TabIndex = 2;
+            buttonOpenFile_ZYA.Text = "Открыть";
+            buttonOpenFile_ZYA.UseVisualStyleBackColor = false;
+            buttonOpenFile_ZYA.Click += buttonOpenFile_ZYA_Click;
             // 
-            // labelTask
+            // buttonDone_ZYA
             // 
-            labelTask.AutoSize = true;
-            labelTask.Location = new Point(14, 10);
-            labelTask.Margin = new Padding(4, 0, 4, 0);
-            labelTask.Name = "labelTask";
-            labelTask.Size = new Size(417, 15);
-            labelTask.TabIndex = 0;
-            labelTask.Text = "Вывести предпоследнее слово каждой строки в одну строку через пробел";
+            buttonDone_ZYA.BackColor = Color.Lime;
+            buttonDone_ZYA.Enabled = false;
+            buttonDone_ZYA.Location = new Point(663, 275);
+            buttonDone_ZYA.Margin = new Padding(4, 3, 4, 3);
+            buttonDone_ZYA.Name = "buttonDone_ZYA";
+            buttonDone_ZYA.Size = new Size(88, 27);
+            buttonDone_ZYA.TabIndex = 3;
+            buttonDone_ZYA.Text = "Выполнить";
+            buttonDone_ZYA.UseVisualStyleBackColor = false;
+            buttonDone_ZYA.Click += buttonDone_ZYA_Click;
             // 
-            // panelBottom
+            // buttonHelp_ZYA
             // 
-            panelBottom.Controls.Add(splitContainer);
-            panelBottom.Dock = DockStyle.Fill;
-            panelBottom.Location = new Point(0, 115);
-            panelBottom.Margin = new Padding(4, 3, 4, 3);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new Size(933, 404);
-            panelBottom.TabIndex = 1;
+            buttonHelp_ZYA.BackColor = SystemColors.ActiveCaption;
+            buttonHelp_ZYA.Location = new Point(471, 275);
+            buttonHelp_ZYA.Margin = new Padding(4, 3, 4, 3);
+            buttonHelp_ZYA.Name = "buttonHelp_ZYA";
+            buttonHelp_ZYA.Size = new Size(88, 27);
+            buttonHelp_ZYA.TabIndex = 4;
+            buttonHelp_ZYA.Text = "Справка";
+            buttonHelp_ZYA.UseVisualStyleBackColor = false;
+            buttonHelp_ZYA.Click += buttonHelp_ZYA_Click;
             // 
-            // splitContainer
+            // openFileDialogTask_ZYA
             // 
-            splitContainer.Dock = DockStyle.Fill;
-            splitContainer.Location = new Point(0, 0);
-            splitContainer.Margin = new Padding(4, 3, 4, 3);
-            splitContainer.Name = "splitContainer";
+            openFileDialogTask_ZYA.FileName = "openFileDialog1";
             // 
-            // splitContainer.Panel1
+            // labelIn_ZYA
             // 
-            splitContainer.Panel1.Controls.Add(textBoxIn);
+            labelIn_ZYA.AutoSize = true;
+            labelIn_ZYA.Location = new Point(14, 22);
+            labelIn_ZYA.Margin = new Padding(4, 0, 4, 0);
+            labelIn_ZYA.Name = "labelIn_ZYA";
+            labelIn_ZYA.Size = new Size(99, 15);
+            labelIn_ZYA.TabIndex = 5;
+            labelIn_ZYA.Text = "Вводные данные";
             // 
-            // splitContainer.Panel2
+            // labelOut_ZYA
             // 
-            splitContainer.Panel2.Controls.Add(textBoxOut);
-            splitContainer.Size = new Size(933, 404);
-            splitContainer.SplitterDistance = 466;
-            splitContainer.SplitterWidth = 5;
-            splitContainer.TabIndex = 0;
-            // 
-            // textBoxIn
-            // 
-            textBoxIn.BackColor = SystemColors.ScrollBar;
-            textBoxIn.Dock = DockStyle.Fill;
-            textBoxIn.Location = new Point(0, 0);
-            textBoxIn.Margin = new Padding(4, 3, 4, 3);
-            textBoxIn.Multiline = true;
-            textBoxIn.Name = "textBoxIn";
-            textBoxIn.ScrollBars = ScrollBars.Both;
-            textBoxIn.Size = new Size(466, 404);
-            textBoxIn.TabIndex = 0;
-            // 
-            // textBoxOut
-            // 
-            textBoxOut.BackColor = SystemColors.AppWorkspace;
-            textBoxOut.Dock = DockStyle.Fill;
-            textBoxOut.Location = new Point(0, 0);
-            textBoxOut.Margin = new Padding(4, 3, 4, 3);
-            textBoxOut.Multiline = true;
-            textBoxOut.Name = "textBoxOut";
-            textBoxOut.ReadOnly = true;
-            textBoxOut.ScrollBars = ScrollBars.Both;
-            textBoxOut.Size = new Size(462, 404);
-            textBoxOut.TabIndex = 0;
-            // 
-            // openFileDialogTask
-            // 
-            openFileDialogTask.FileName = "openFileDialog1";
+            labelOut_ZYA.AutoSize = true;
+            labelOut_ZYA.Location = new Point(14, 281);
+            labelOut_ZYA.Margin = new Padding(4, 0, 4, 0);
+            labelOut_ZYA.Name = "labelOut_ZYA";
+            labelOut_ZYA.Size = new Size(60, 15);
+            labelOut_ZYA.TabIndex = 6;
+            labelOut_ZYA.Text = "Результат";
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(933, 519);
-            Controls.Add(panelBottom);
-            Controls.Add(panelTop);
+            ClientSize = new Size(764, 547);
+            Controls.Add(labelOut_ZYA);
+            Controls.Add(labelIn_ZYA);
+            Controls.Add(buttonHelp_ZYA);
+            Controls.Add(buttonDone_ZYA);
+            Controls.Add(buttonOpenFile_ZYA);
+            Controls.Add(textBoxOut_ZYA);
+            Controls.Add(textBoxIn_ZYA);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormMain";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Спринт 6 | Таск 6 | Вариант 11 | Зайцев Я.А.";
-            panelTop.ResumeLayout(false);
-            panelTop.PerformLayout();
-            panelBottom.ResumeLayout(false);
-            splitContainer.Panel1.ResumeLayout(false);
-            splitContainer.Panel1.PerformLayout();
-            splitContainer.Panel2.ResumeLayout(false);
-            splitContainer.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
-            splitContainer.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.TextBox textBoxIn;
-        private System.Windows.Forms.TextBox textBoxOut;
-        private System.Windows.Forms.Button buttonHelp;
-        private System.Windows.Forms.Button buttonOpenFile;
-        private System.Windows.Forms.Label labelTask;
-        private System.Windows.Forms.OpenFileDialog openFileDialogTask;
+        private System.Windows.Forms.TextBox textBoxIn_ZYA;
+        private System.Windows.Forms.TextBox textBoxOut_ZYA;
+        private System.Windows.Forms.Button buttonOpenFile_ZYA;
+        private System.Windows.Forms.Button buttonDone_ZYA;
+        private System.Windows.Forms.Button buttonHelp_ZYA;
+        private System.Windows.Forms.OpenFileDialog openFileDialogTask_ZYA;
+        private System.Windows.Forms.Label labelIn_ZYA;
+        private System.Windows.Forms.Label labelOut_ZYA;
     }
 }

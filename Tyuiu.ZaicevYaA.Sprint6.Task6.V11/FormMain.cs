@@ -1,7 +1,6 @@
 using System;
-using System.IO;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
 {
@@ -12,25 +11,23 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
             InitializeComponent();
         }
 
-        private void buttonOpenFile_Click(object sender, EventArgs e)
+        DataService ds = new DataService();
+        string openFilePath;
+
+        private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
         {
-            openFileDialogTask.ShowDialog();
-            string path = openFileDialogTask.FileName;
-
-            if (File.Exists(path))
-            {
-                textBoxIn.Text = File.ReadAllText(path);
-
-                DataService ds = new DataService();
-                textBoxOut.Text = ds.CollectTextFromFile(path);
-            }
-            else
-            {
-                MessageBox.Show("Файл не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            openFileDialogTask_ZYA.ShowDialog();
+            openFilePath = openFileDialogTask_ZYA.FileName;
+            textBoxIn_ZYA.Text = File.ReadAllText(openFilePath);
+            buttonDone_ZYA.Enabled = true;
         }
 
-        private void buttonHelp_Click(object sender, EventArgs e)
+        private void buttonDone_ZYA_Click(object sender, EventArgs e)
+        {
+            textBoxOut_ZYA.Text = ds.CollectTextFromFile("", openFilePath);
+        }
+
+        private void buttonHelp_ZYA_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Таск 6 выполнил студент группы ПКТб-24-1 Зайцев Ярослав Александрович", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
