@@ -10,11 +10,17 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Test
         [TestMethod]
         public void ValidCollectTextFromFile()
         {
-            string path = @"C:\test\InPutFileTask6V11.txt";
+            string path = @"C:\DataSprint6\InPutFileTask6V11.txt";
+
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            bool wait = true;
+            Assert.AreEqual(wait, fileExists);
+
             DataService ds = new DataService();
             string result = ds.CollectTextFromFile("", path);
-            string expected = "предпоследнее слово";
-            Assert.AreEqual(expected, result);
+            string waitResult = "предпоследнее слово";
+            Assert.AreEqual(waitResult, result);
         }
     }
 }
