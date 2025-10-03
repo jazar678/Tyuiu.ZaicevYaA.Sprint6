@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
@@ -11,24 +10,34 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
         {
             string result = "";
 
-            using (StreamReader reader = new StreamReader(path))
+            try
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                string[] lines = File.ReadAllLines(path);
+
+                foreach (string line in lines)
                 {
                     if (!string.IsNullOrWhiteSpace(line))
                     {
-                        string[] words = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
                         if (words.Length >= 2)
                         {
-                            string secondLastWord = words[words.Length - 2];
-                            result += secondLastWord + " ";
+                            result += words[words.Length - 2] + " ";
                         }
                     }
                 }
+
+                if (result.Length > 0)
+                {
+                    result = result.Trim();
+                }
+            }
+            catch (Exception ex)
+            {
+                result = "Ошибка: " + ex.Message;
             }
 
-            return result.Trim();
+            return result;
         }
     }
 }

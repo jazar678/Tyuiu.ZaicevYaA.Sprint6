@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
+using System.IO;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Test
 {
@@ -18,9 +18,9 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Test
             Assert.AreEqual(wait, fileExists);
 
             DataService ds = new DataService();
-            string result = ds.CollectTextFromFile("", path);
-            string waitResult = "предпоследнее слово";
-            Assert.AreEqual(waitResult, result);
+            string result = ds.CollectTextFromFile("test", path);
+            string expected = "пример тестовых данных";
+            Assert.AreEqual(expected, result);
         }
     }
 }

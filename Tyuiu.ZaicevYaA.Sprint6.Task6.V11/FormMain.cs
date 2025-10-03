@@ -1,6 +1,6 @@
 using System;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
@@ -12,25 +12,27 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
             InitializeComponent();
         }
 
+        private string filePath;
         DataService ds = new DataService();
-        string openFilePath;
 
         private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
         {
             openFileDialogTask_ZYA.ShowDialog();
-            openFilePath = openFileDialogTask_ZYA.FileName;
-            textBoxIn_ZYA.Text = File.ReadAllText(openFilePath);
+            filePath = openFileDialogTask_ZYA.FileName;
+            textBoxIn_ZYA.Text = File.ReadAllText(filePath);
             buttonDone_ZYA.Enabled = true;
         }
 
         private void buttonDone_ZYA_Click(object sender, EventArgs e)
         {
-            textBoxOut_ZYA.Text = ds.CollectTextFromFile("", openFilePath);
+            textBoxOut_ZYA.Text = ds.CollectTextFromFile("", filePath);
         }
 
         private void buttonHelp_ZYA_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Таск 6 выполнил студент группы ПКТб-24-1 Зайцев Ярослав Александрович", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
         }
     }
+}
 }
