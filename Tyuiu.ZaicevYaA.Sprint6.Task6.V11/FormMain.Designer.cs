@@ -17,132 +17,97 @@
 
         private void InitializeComponent()
         {
-            textBoxIn_ZYA = new TextBox();
-            textBoxOut_ZYA = new TextBox();
-            buttonOpenFile_ZYA = new Button();
-            buttonDone_ZYA = new Button();
-            buttonHelp_ZYA = new Button();
-            openFileDialogTask_ZYA = new OpenFileDialog();
-            labelIn_ZYA = new Label();
-            labelOut_ZYA = new Label();
-            SuspendLayout();
-            // 
-            // textBoxIn_ZYA
-            // 
-            textBoxIn_ZYA.Location = new Point(14, 37);
-            textBoxIn_ZYA.Margin = new Padding(4, 3, 4, 3);
-            textBoxIn_ZYA.Multiline = true;
-            textBoxIn_ZYA.Name = "textBoxIn_ZYA";
-            textBoxIn_ZYA.ScrollBars = ScrollBars.Vertical;
-            textBoxIn_ZYA.Size = new Size(466, 230);
-            textBoxIn_ZYA.TabIndex = 0;
-            // 
-            // textBoxOut_ZYA
-            // 
-            textBoxOut_ZYA.Location = new Point(488, 37);
-            textBoxOut_ZYA.Margin = new Padding(4, 3, 4, 3);
-            textBoxOut_ZYA.Multiline = true;
-            textBoxOut_ZYA.Name = "textBoxOut_ZYA";
-            textBoxOut_ZYA.ReadOnly = true;
-            textBoxOut_ZYA.ScrollBars = ScrollBars.Vertical;
-            textBoxOut_ZYA.Size = new Size(466, 230);
-            textBoxOut_ZYA.TabIndex = 1;
-            // 
-            // buttonOpenFile_ZYA
-            // 
-            buttonOpenFile_ZYA.BackColor = Color.FromArgb(255, 128, 0);
-            buttonOpenFile_ZYA.Location = new Point(14, 275);
-            buttonOpenFile_ZYA.Margin = new Padding(4, 3, 4, 3);
-            buttonOpenFile_ZYA.Name = "buttonOpenFile_ZYA";
-            buttonOpenFile_ZYA.Size = new Size(140, 35);
-            buttonOpenFile_ZYA.TabIndex = 2;
-            buttonOpenFile_ZYA.Text = "Открыть файл";
-            buttonOpenFile_ZYA.UseVisualStyleBackColor = false;
-            buttonOpenFile_ZYA.Click += buttonOpenFile_ZYA_Click;
-            // 
-            // buttonDone_ZYA
-            // 
-            buttonDone_ZYA.BackColor = Color.Lime;
-            buttonDone_ZYA.Enabled = false;
-            buttonDone_ZYA.Location = new Point(418, 275);
-            buttonDone_ZYA.Margin = new Padding(4, 3, 4, 3);
-            buttonDone_ZYA.Name = "buttonDone_ZYA";
-            buttonDone_ZYA.Size = new Size(140, 35);
-            buttonDone_ZYA.TabIndex = 3;
-            buttonDone_ZYA.Text = "Выполнить";
-            buttonDone_ZYA.UseVisualStyleBackColor = false;
-            buttonDone_ZYA.Click += buttonDone_ZYA_Click;
-            // 
-            // buttonHelp_ZYA
-            // 
-            buttonHelp_ZYA.BackColor = SystemColors.ActiveCaption;
-            buttonHelp_ZYA.Location = new Point(814, 275);
-            buttonHelp_ZYA.Margin = new Padding(4, 3, 4, 3);
-            buttonHelp_ZYA.Name = "buttonHelp_ZYA";
-            buttonHelp_ZYA.Size = new Size(140, 35);
-            buttonHelp_ZYA.TabIndex = 4;
-            buttonHelp_ZYA.Text = "Справка";
-            buttonHelp_ZYA.UseVisualStyleBackColor = false;
-            buttonHelp_ZYA.Click += buttonHelp_ZYA_Click;
-            // 
-            // openFileDialogTask_ZYA
-            // 
-            openFileDialogTask_ZYA.FileName = "openFileDialog1";
-            openFileDialogTask_ZYA.Filter = "Текстовые файлы|*.txt";
-            // 
-            // labelIn_ZYA
-            // 
-            labelIn_ZYA.AutoSize = true;
-            labelIn_ZYA.Location = new Point(14, 14);
-            labelIn_ZYA.Margin = new Padding(4, 0, 4, 0);
-            labelIn_ZYA.Name = "labelIn_ZYA";
-            labelIn_ZYA.Size = new Size(99, 15);
-            labelIn_ZYA.TabIndex = 5;
-            labelIn_ZYA.Text = "Входные данные";
-            // 
-            // labelOut_ZYA
-            // 
-            labelOut_ZYA.AutoSize = true;
-            labelOut_ZYA.Location = new Point(488, 14);
-            labelOut_ZYA.Margin = new Padding(4, 0, 4, 0);
-            labelOut_ZYA.Name = "labelOut_ZYA";
-            labelOut_ZYA.Size = new Size(60, 15);
-            labelOut_ZYA.TabIndex = 6;
-            labelOut_ZYA.Text = "Результат";
-            // 
-            // FormMain
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(973, 324);
-            Controls.Add(labelOut_ZYA);
-            Controls.Add(labelIn_ZYA);
-            Controls.Add(buttonHelp_ZYA);
-            Controls.Add(buttonDone_ZYA);
-            Controls.Add(buttonOpenFile_ZYA);
-            Controls.Add(textBoxOut_ZYA);
-            Controls.Add(textBoxIn_ZYA);
-            Margin = new Padding(4, 3, 4, 3);
-            MaximizeBox = false;
-            MaximumSize = new Size(989, 363);
-            MinimumSize = new Size(989, 363);
-            Name = "FormMain";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Спринт 6 | Таск 6 | Вариант 11 | Зайцев Я.А.";
-            ResumeLayout(false);
-            PerformLayout();
+            this.textBoxIn = new System.Windows.Forms.TextBox();
+            this.textBoxOut = new System.Windows.Forms.TextBox();
+            this.buttonOpenFile = new System.Windows.Forms.Button();
+            this.buttonDone = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
+            this.openFileDialogTask = new System.Windows.Forms.OpenFileDialog();
+            this.labelIn = new System.Windows.Forms.Label();
+            this.labelOut = new System.Windows.Forms.Label();
+            this.SuspendLayout();
 
+            this.textBoxIn.Location = new System.Drawing.Point(12, 35);
+            this.textBoxIn.Multiline = true;
+            this.textBoxIn.Name = "textBoxIn";
+            this.textBoxIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxIn.Size = new System.Drawing.Size(400, 300);
+            this.textBoxIn.TabIndex = 0;
+
+            this.textBoxOut.Location = new System.Drawing.Point(430, 35);
+            this.textBoxOut.Multiline = true;
+            this.textBoxOut.Name = "textBoxOut";
+            this.textBoxOut.ReadOnly = true;
+            this.textBoxOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOut.Size = new System.Drawing.Size(400, 300);
+            this.textBoxOut.TabIndex = 1;
+
+            this.buttonOpenFile.Location = new System.Drawing.Point(12, 350);
+            this.buttonOpenFile.Name = "buttonOpenFile";
+            this.buttonOpenFile.Size = new System.Drawing.Size(100, 30);
+            this.buttonOpenFile.TabIndex = 2;
+            this.buttonOpenFile.Text = "Открыть файл";
+            this.buttonOpenFile.UseVisualStyleBackColor = true;
+            this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
+
+            this.buttonDone.Enabled = false;
+            this.buttonDone.Location = new System.Drawing.Point(370, 350);
+            this.buttonDone.Name = "buttonDone";
+            this.buttonDone.Size = new System.Drawing.Size(100, 30);
+            this.buttonDone.TabIndex = 3;
+            this.buttonDone.Text = "Выполнить";
+            this.buttonDone.UseVisualStyleBackColor = true;
+            this.buttonDone.Click += new System.EventHandler(this.buttonDone_Click);
+
+            this.buttonHelp.Location = new System.Drawing.Point(730, 350);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(100, 30);
+            this.buttonHelp.TabIndex = 4;
+            this.buttonHelp.Text = "Справка";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+
+            this.openFileDialogTask.FileName = "openFileDialog1";
+
+            this.labelIn.AutoSize = true;
+            this.labelIn.Location = new System.Drawing.Point(12, 15);
+            this.labelIn.Name = "labelIn";
+            this.labelIn.Size = new System.Drawing.Size(89, 13);
+            this.labelIn.TabIndex = 5;
+            this.labelIn.Text = "Входные данные:";
+
+            this.labelOut.AutoSize = true;
+            this.labelOut.Location = new System.Drawing.Point(427, 15);
+            this.labelOut.Name = "labelOut";
+            this.labelOut.Size = new System.Drawing.Size(69, 13);
+            this.labelOut.TabIndex = 6;
+            this.labelOut.Text = "Результат:";
+
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(844, 391);
+            this.Controls.Add(this.labelOut);
+            this.Controls.Add(this.labelIn);
+            this.Controls.Add(this.buttonHelp);
+            this.Controls.Add(this.buttonDone);
+            this.Controls.Add(this.buttonOpenFile);
+            this.Controls.Add(this.textBoxOut);
+            this.Controls.Add(this.textBoxIn);
+            this.Name = "FormMain";
+            this.Text = "Спринт 6 | Таск 6 | Вариант 11 | Зайцев Я.А.";
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxIn_ZYA;
-        private System.Windows.Forms.TextBox textBoxOut_ZYA;
-        private System.Windows.Forms.Button buttonOpenFile_ZYA;
-        private System.Windows.Forms.Button buttonDone_ZYA;
-        private System.Windows.Forms.Button buttonHelp_ZYA;
-        private System.Windows.Forms.OpenFileDialog openFileDialogTask_ZYA;
-        private System.Windows.Forms.Label labelIn_ZYA;
-        private System.Windows.Forms.Label labelOut_ZYA;
+        private System.Windows.Forms.TextBox textBoxIn;
+        private System.Windows.Forms.TextBox textBoxOut;
+        private System.Windows.Forms.Button buttonOpenFile;
+        private System.Windows.Forms.Button buttonDone;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.OpenFileDialog openFileDialogTask;
+        private System.Windows.Forms.Label labelIn;
+        private System.Windows.Forms.Label labelOut;
     }
 }

@@ -9,35 +9,22 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
         public string CollectTextFromFile(string str, string path)
         {
             string result = "";
-
-            try
+            using (StreamReader reader = new StreamReader(path))
             {
-                string[] lines = File.ReadAllLines(path);
-
-                foreach (string line in lines)
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
                     if (!string.IsNullOrWhiteSpace(line))
                     {
                         string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
                         if (words.Length >= 2)
                         {
                             result += words[words.Length - 2] + " ";
                         }
                     }
                 }
-
-                if (result.Length > 0)
-                {
-                    result = result.Trim();
-                }
             }
-            catch (Exception ex)
-            {
-                result = "Ошибка: " + ex.Message;
-            }
-
-            return result;
+            return result.Trim();
         }
     }
 }
