@@ -10,18 +10,17 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Test
         [TestMethod]
         public void ValidCollectTextFromFile()
         {
-            string path = @"C:\test\testfile.txt";
+            string path = @"C:\TestDataSprint6\InPutFileTask6V11.txt";
 
-            string testData = "первое второе третье\nодин два три\nслово1 слово2 слово3";
-            File.WriteAllText(path, testData);
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            bool wait = true;
+            Assert.AreEqual(wait, fileExists);
 
             DataService ds = new DataService();
             string result = ds.CollectTextFromFile("test", path);
-
-            string wait = "второе два слово2";
-            Assert.AreEqual(wait, result);
-
-            File.Delete(path);
+            string waitResult = "предпоследнее слово";
+            Assert.AreEqual(waitResult, result);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
@@ -8,37 +9,24 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib
     {
         public string CollectTextFromFile(string str, string path)
         {
+            string[] lines = File.ReadAllLines(path);
             string result = "";
 
-            try
+            foreach (string line in lines)
             {
-                string[] lines = File.ReadAllLines(path);
-
-                foreach (string line in lines)
+                if (!string.IsNullOrWhiteSpace(line))
                 {
-                    if (!string.IsNullOrWhiteSpace(line))
-                    {
-                        string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] words = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                        if (words.Length >= 2)
-                        {
-                            string preLastWord = words[words.Length - 2];
-                            result += preLastWord + " ";
-                        }
+                    if (words.Length >= 2)
+                    {
+                        string secondLastWord = words[words.Length - 2];
+                        result += secondLastWord + " ";
                     }
                 }
-
-                if (result.Length > 0)
-                {
-                    result = result.Trim();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ошибка при чтении файла: " + ex.Message);
             }
 
-            return result;
+            return result.Trim();
         }
     }
 }

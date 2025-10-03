@@ -5,6 +5,9 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
 {
     internal static class Program
     {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         [STAThread]
         static void Main()
         {

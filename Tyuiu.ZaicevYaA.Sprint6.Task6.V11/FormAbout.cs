@@ -10,7 +10,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
             InitializeComponent();
         }
 
-        private void buttonOk_ZYA_Click(object sender, EventArgs e)
+        private void buttonOK_ZYA_Click(object sender, EventArgs e)
         {
             this.Close();
         }

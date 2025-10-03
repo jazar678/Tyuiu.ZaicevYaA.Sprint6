@@ -1,6 +1,6 @@
 using System;
-using System.IO;
 using System.Windows.Forms;
+using System.IO;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V11.Lib;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
@@ -12,36 +12,34 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V11
             InitializeComponent();
         }
 
+        DataService ds = new DataService();
+        string openFilePath;
+
         private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
         {
             openFileDialogTask_ZYA.ShowDialog();
-            string filename = openFileDialogTask_ZYA.FileName;
+            openFilePath = openFileDialogTask_ZYA.FileName;
 
-            if (File.Exists(filename))
+            if (File.Exists(openFilePath))
             {
-                textBoxIn_ZYA.Text = File.ReadAllText(filename);
-                buttonDone_ZYA.Enabled = true;
+                textBoxIn_ZYA.Text = File.ReadAllText(openFilePath);
+                buttonExecute_ZYA.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Файл не выбран или не существует!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void buttonDone_ZYA_Click(object sender, EventArgs e)
+        private void buttonExecute_ZYA_Click(object sender, EventArgs e)
         {
-            DataService ds = new DataService();
-            try
+            if (File.Exists(openFilePath))
             {
-                string path = openFileDialogTask_ZYA.FileName;
-                string result = ds.CollectTextFromFile("test", path);
-                textBoxOut_ZYA.Text = result;
+                textBoxOut_ZYA.Text = ds.CollectTextFromFile("test", openFilePath);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
