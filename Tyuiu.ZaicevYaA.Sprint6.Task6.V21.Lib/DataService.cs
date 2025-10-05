@@ -15,17 +15,16 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 
             foreach (string line in lines)
             {
-                // Проверяем, содержит ли строка символы "**"
                 if (line.Contains("**"))
                 {
-                    // Разбиваем строку на слова
-                    string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t', '-', '(', ')', '[', ']', '"', '/', '\\', '+', '=', '|', '{', '}', '<', '>' },
-                                              StringSplitOptions.RemoveEmptyEntries);
+                    // Простое разделение по пробелам
+                    string[] words = line.Split(' ');
 
                     foreach (string word in words)
                     {
-                        // Проверяем содержит ли слово букву g (игнорируя регистр)
-                        if (word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0)
+                        if ((word.Contains('g') || word.Contains('G')) &&
+                            !string.IsNullOrWhiteSpace(word) &&
+                            word != "**")
                         {
                             if (result.Length > 0)
                                 result.Append(" ");
@@ -35,7 +34,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
                 }
             }
 
-            return result.ToString();
+            return result.ToString().Trim();
         }
     }
 }
