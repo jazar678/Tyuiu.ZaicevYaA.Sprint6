@@ -14,21 +14,16 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 
             foreach (string line in lines)
             {
-                // Проверяем наличие ** в строке
-                if (line.Contains("**"))
-                {
-                    // Разбиваем строку на слова по пробелам
-                    string[] parts = line.Split(' ');
+                string[] parts = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t', '-', '(', ')', '[', ']', '"' },
+                                          StringSplitOptions.RemoveEmptyEntries);
 
-                    foreach (string part in parts)
+                foreach (string part in parts)
+                {
+                    if (part.Contains("g") || part.Contains("G"))
                     {
-                        // Проверяем содержит ли часть букву g и не является ли **
-                        if ((part.Contains("g") || part.Contains("G")) && part != "**")
-                        {
-                            if (result.Length > 0)
-                                result.Append(" ");
-                            result.Append(part);
-                        }
+                        if (result.Length > 0)
+                            result.Append(" ");
+                        result.Append(part);
                     }
                 }
             }
