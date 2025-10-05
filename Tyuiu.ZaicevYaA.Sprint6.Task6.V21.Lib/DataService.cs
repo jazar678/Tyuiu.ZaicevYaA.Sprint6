@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
@@ -9,26 +10,18 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
     {
         public string CollectTextFromFile(string path)
         {
-            string[] lines = File.ReadAllLines(path);
-            StringBuilder result = new StringBuilder();
+            string content = File.ReadAllText(path);
 
-            foreach (string line in lines)
-            {
-                string[] parts = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t', '-', '(', ')', '[', ']', '"' },
-                                          StringSplitOptions.RemoveEmptyEntries);
+            // Разделяем содержимое на слова, используя различные разделители
+            char[] separators = new char[] { ' ', '\r', '\n', '\t', ',', '.', '!', '?', ';', ':', '-', '(', ')', '[', ']', '"', '/', '\\' };
+            string[] words = content.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-                foreach (string part in parts)
-                {
-                    if (part.Contains("g") || part.Contains("G"))
-                    {
-                        if (result.Length > 0)
-                            result.Append(" ");
-                        result.Append(part);
-                    }
-                }
-            }
+            // Фильтруем слова, содержащие букву 'g' (регистронезависимо)
+            var wordsWithG = words.Where(word =>
+                word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0);
 
-            return result.ToString();
+            // Объединяем результат через пробел
+            return string.Join(" ", wordsWithG);
         }
     }
 }
