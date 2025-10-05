@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
@@ -9,29 +10,39 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
     {
         public string CollectTextFromFile(string path)
         {
+            if (!File.Exists(path))
+                return "Файл не существует";
+
             string[] lines = File.ReadAllLines(path);
-            string result = "";
+            StringBuilder result = new StringBuilder();
 
             foreach (string line in lines)
             {
-                // Проверяем, содержит ли строка символы "**"
-                if (line.Contains("**"))
+                // Более надежная проверка на наличие "**"
+                if (line.IndexOf("**", StringComparison.Ordinal) >= 0)
                 {
-                    string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t', '-', '(', ')', '[', ']', '"' },
-                                              StringSplitOptions.RemoveEmptyEntries);
+                    // Упрощенное разделение на слова - только пробелы
+                    string[] words = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (string word in words)
                     {
-                        // Ищем слова содержащие 'g' (регистронезависимо)
-                        if (word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0)
+                        // Проверяем содержит ли слово букву g (игнорируя регистр)
+                        if (word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            word.IndexOf('G', StringComparison.OrdinalIgnoreCase) >= 0)
                         {
-                            result += word + " ";
+                            // Пропускаем пустые слова и сами символы "**"
+                            if (!string.IsNullOrEmpty(word) && word != "**")
+                            {
+                                if (result.Length > 0)
+                                    result.Append(" ");
+                                result.Append(word);
+                            }
                         }
                     }
                 }
             }
 
-            return result.Trim();
+            return result.ToString();
         }
     }
 }
