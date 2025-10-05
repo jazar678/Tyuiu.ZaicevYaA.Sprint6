@@ -12,15 +12,12 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
         {
             string content = File.ReadAllText(path);
 
-            // Разделяем содержимое на слова, используя различные разделители
             char[] separators = new char[] { ' ', '\r', '\n', '\t', ',', '.', '!', '?', ';', ':', '-', '(', ')', '[', ']', '"', '/', '\\' };
             string[] words = content.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-            // Фильтруем слова, содержащие букву 'g' (регистронезависимо)
-            var wordsWithG = words.Where(word =>
-                word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0);
+            // Ищем только строчную букву 'g'
+            var wordsWithG = words.Where(word => word.Contains('g'));
 
-            // Объединяем результат через пробел
             return string.Join(" ", wordsWithG);
         }
     }

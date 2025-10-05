@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tyuiu.ZaicevYaA.Sprint6.Task7.V28.Lib\Tyuiu.ZaicevYaA.Sprint6.Task7.V28.Lib.csproj" />
+  </ItemGroup>
+
 </Project>
