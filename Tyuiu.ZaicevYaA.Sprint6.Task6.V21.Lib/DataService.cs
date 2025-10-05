@@ -7,39 +7,26 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 {
     public class DataService : ISprint6Task6V21
     {
-        public string CollectTextFromFile(string str, string path)
+        public string CollectTextFromFile(string path)
         {
+            string[] lines = File.ReadAllLines(path);
             string result = "";
 
-            if (!File.Exists(path))
-                return "Файл не существует";
-
-            try
+            foreach (string line in lines)
             {
-                string fileContent = File.ReadAllText(path);
+                string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t' },
+                                          StringSplitOptions.RemoveEmptyEntries);
 
-                // Разделяем на слова, используя различные разделители
-                char[] separators = new char[] {
-                    ' ', ',', '.', '!', '?', ';', ':', '\t', '\r', '\n',
-                    '(', ')', '[', ']', '{', '}', '"', '\'', '-', '_',
-                    '=', '+', '*', '/', '\\', '|', '<', '>', '&', '%', '$', '@'
-                };
-
-                string[] words = fileContent.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-
-                // Фильтруем слова, содержащие букву 'g' (регистронезависимо)
-                var filteredWords = words.Where(word =>
-                    word.IndexOf("g", StringComparison.OrdinalIgnoreCase) >= 0);
-
-                // Объединяем через пробел
-                result = string.Join(" ", filteredWords);
-            }
-            catch (Exception ex)
-            {
-                return $"Ошибка при чтении файла: {ex.Message}";
+                foreach (string word in words)
+                {
+                    if (word.Contains('g') || word.Contains('G'))
+                    {
+                        result += word + " ";
+                    }
+                }
             }
 
-            return result;
+            return result.Trim();
         }
     }
 }

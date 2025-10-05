@@ -1,8 +1,7 @@
 using System;
-using System.Drawing;
-using System.IO;
-using Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib;
 using System.Windows.Forms;
+using Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib;
+using System.IO;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
 {
@@ -11,18 +10,21 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
         public FormMain()
         {
             InitializeComponent();
+            buttonDone_ZYA.Enabled = false;
         }
 
-        private void buttonOpenFile_Click(object sender, EventArgs e)
-        {
-            openFileDialogTask.ShowDialog();
-            string filePath = openFileDialogTask.FileName;
+        DataService ds = new DataService();
+        string openFilePath;
 
-            if (File.Exists(filePath))
+        private void buttonOpenFile_ZYA_Click(object sender, EventArgs e)
+        {
+            openFileDialogTask_ZYA.ShowDialog();
+            openFilePath = openFileDialogTask_ZYA.FileName;
+
+            if (File.Exists(openFilePath))
             {
-                textBoxIn.Text = File.ReadAllText(filePath);
-                buttonDone.Image = Properties.Resources.run_enabled;
-                buttonDone.Enabled = true;
+                textBoxIn_ZYA.Text = File.ReadAllText(openFilePath);
+                buttonDone_ZYA.Enabled = true;
             }
             else
             {
@@ -30,58 +32,22 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
             }
         }
 
-        private void buttonDone_Click(object sender, EventArgs e)
+        private void buttonDone_ZYA_Click(object sender, EventArgs e)
         {
-            string path = openFileDialogTask.FileName;
-
-            if (File.Exists(path))
+            if (File.Exists(openFilePath))
             {
-                DataService ds = new DataService();
-                textBoxOut.Text = ds.CollectTextFromFile("g", path);
-                buttonDone.Image = Properties.Resources.run_completed;
+                textBoxOut_ZYA.Text = ds.CollectTextFromFile(openFilePath);
             }
             else
             {
-                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void buttonHelp_Click(object sender, EventArgs e)
+        private void buttonHelp_ZYA_Click(object sender, EventArgs e)
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
-        }
-
-        private void buttonOpenFile_MouseEnter(object sender, EventArgs e)
-        {
-            buttonOpenFile.Image = Properties.Resources.folder_hover;
-        }
-
-        private void buttonOpenFile_MouseLeave(object sender, EventArgs e)
-        {
-            buttonOpenFile.Image = Properties.Resources.folder_normal;
-        }
-
-        private void buttonDone_MouseEnter(object sender, EventArgs e)
-        {
-            if (buttonDone.Enabled)
-                buttonDone.Image = Properties.Resources.run_hover;
-        }
-
-        private void buttonDone_MouseLeave(object sender, EventArgs e)
-        {
-            if (buttonDone.Enabled)
-                buttonDone.Image = Properties.Resources.run_enabled;
-        }
-
-        private void buttonHelp_MouseEnter(object sender, EventArgs e)
-        {
-            buttonHelp.Image = Properties.Resources.help_hover;
-        }
-
-        private void buttonHelp_MouseLeave(object sender, EventArgs e)
-        {
-            buttonHelp.Image = Properties.Resources.help_normal;
         }
     }
 }
