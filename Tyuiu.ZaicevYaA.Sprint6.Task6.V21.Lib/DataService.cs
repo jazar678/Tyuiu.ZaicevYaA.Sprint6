@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Text;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
@@ -15,26 +14,26 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 
             foreach (string line in lines)
             {
+                // Проверяем наличие ** в строке
                 if (line.Contains("**"))
                 {
-                    // Простое разделение по пробелам
-                    string[] words = line.Split(' ');
+                    // Разбиваем строку на слова по пробелам
+                    string[] parts = line.Split(' ');
 
-                    foreach (string word in words)
+                    foreach (string part in parts)
                     {
-                        if ((word.Contains('g') || word.Contains('G')) &&
-                            !string.IsNullOrWhiteSpace(word) &&
-                            word != "**")
+                        // Проверяем содержит ли часть букву g и не является ли **
+                        if ((part.Contains("g") || part.Contains("G")) && part != "**")
                         {
                             if (result.Length > 0)
                                 result.Append(" ");
-                            result.Append(word);
+                            result.Append(part);
                         }
                     }
                 }
             }
 
-            return result.ToString().Trim();
+            return result.ToString();
         }
     }
 }
