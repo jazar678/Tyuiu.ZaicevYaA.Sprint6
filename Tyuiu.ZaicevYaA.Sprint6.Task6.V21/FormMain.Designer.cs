@@ -89,7 +89,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
             this.buttonHelp.MouseLeave += new System.EventHandler(this.buttonHelp_MouseLeave);
 
             // openFileDialogTask
-            this.openFileDialogTask.FileName = "openFileDialogTask";
+            this.openFileDialogTask.FileName = "InPutFileTask6V21";
             this.openFileDialogTask.Filter = "Текстовые файлы|*.txt";
 
             // FormMain
