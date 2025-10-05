@@ -1,7 +1,8 @@
 using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Data;
+using Tyuiu.ZaicevYaA.Sprint6.Task7.V28.Lib;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task7.V28
 {
@@ -9,121 +10,134 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task7.V28
     {
         public FormMain()
         {
-            InitializeComponent();
-            this.Text = "Спринт 6 | Таск 7 | Вариант 28 | Зайцев Я.А.";
-            buttonOpenFile.Click += ButtonOpenFile_Click;
-            buttonDone.Click += ButtonDone_Click;
-            buttonSaveFile.Click += ButtonSaveFile_Click;
-            buttonHelp.Click += ButtonHelp_Click;
+            InitializeComponent(); // Исправлено: InitializeComponent
+            openFileDialogTask.Filter = "CSV files (*.csv)|*.csv";
+            saveFileDialogMatrix.Filter = "CSV files (*.csv)|*.csv";
         }
 
-        private string filePath;
-        private int[,] matrix;
+        static int rows;
+        static int columns;
+        static string openFilePath;
+        DataService ds = new DataService();
 
-        private void ButtonOpenFile_Click(object sender, EventArgs e)
+        public static int[,] LoadFromFileData(string filePath)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "CSV files (*.csv)|*.csv",
-                Title = "Выберите файл"
-            };
+            string fileData = File.ReadAllText(filePath);
+            fileData = fileData.Replace('\n', '\r');
+            string[] lines = fileData.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            rows = lines.Length;
+            columns = lines[0].Split(';').Length;
+
+            int[,] arrayValues = new int[rows, columns];
+
+            for (int r = 0; r < rows; r++)
             {
-                filePath = openFileDialog.FileName;
-                LoadMatrixToDataGridView(filePath, dataGridViewIn);
+                string[] line_r = lines[r].Split(';');
+                for (int c = 0; c < columns; c++)
+                {
+                    arrayValues[r, c] = Convert.ToInt32(line_r[c]);
+                }
+            }
+            return arrayValues;
+        }
+
+        private void buttonOpenFile_Click(object sender, EventArgs e)
+        {
+            openFileDialogTask.ShowDialog();
+            openFilePath = openFileDialogTask.FileName;
+
+            if (File.Exists(openFilePath))
+            {
+                int[,] arrayValues = LoadFromFileData(openFilePath);
+
+                dataGridViewIn.ColumnCount = columns;
+                dataGridViewIn.RowCount = rows;
+                dataGridViewOut.ColumnCount = columns;
+                dataGridViewOut.RowCount = rows;
+
+                for (int i = 0; i < columns; i++)
+                {
+                    dataGridViewIn.Columns[i].Width = 50;
+                    dataGridViewOut.Columns[i].Width = 50;
+                }
+
+                for (int r = 0; r < rows; r++)
+                {
+                    for (int c = 0; c < columns; c++)
+                    {
+                        dataGridViewIn.Rows[r].Cells[c].Value = arrayValues[r, c];
+                    }
+                }
+
+                arrayValues = ds.GetMatrix(openFilePath);
                 buttonDone.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ButtonDone_Click(object sender, EventArgs e)
+        private void buttonDone_Click(object sender, EventArgs e)
         {
-            if (filePath == null) return;
+            int[,] arrayValues = new int[rows, columns];
+            arrayValues = ds.GetMatrix(openFilePath);
 
-            DataService ds = new DataService();
-            matrix = ds.GetMatrix(filePath);
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < columns; c++)
+                {
+                    dataGridViewOut.Rows[r].Cells[c].Value = arrayValues[r, c];
+                }
+            }
 
-            DisplayMatrixInDataGridView(matrix, dataGridViewOut);
             buttonSaveFile.Enabled = true;
         }
 
-        private void ButtonSaveFile_Click(object sender, EventArgs e)
+        private void buttonSaveFile_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Filter = "CSV files (*.csv)|*.csv",
-                Title = "Сохранить результат"
-            };
+            saveFileDialogMatrix.FileName = "OutPutFileTask7.csv";
+            saveFileDialogMatrix.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialogMatrix.ShowDialog();
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialogMatrix.FileName != "")
             {
-                SaveMatrixToFile(matrix, saveFileDialog.FileName);
-                MessageBox.Show("Файл сохранен успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FileInfo fileInfo = new FileInfo(saveFileDialogMatrix.FileName);
+                bool fileExists = fileInfo.Exists;
+                if (fileExists)
+                {
+                    File.Delete(saveFileDialogMatrix.FileName);
+                }
+
+                int rows = dataGridViewOut.RowCount;
+                int columns = dataGridViewOut.ColumnCount;
+
+                string str = "";
+
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        if (j != columns - 1)
+                        {
+                            str = str + dataGridViewOut.Rows[i].Cells[j].Value + ";";
+                        }
+                        else
+                        {
+                            str = str + dataGridViewOut.Rows[i].Cells[j].Value;
+                        }
+                    }
+                    File.AppendAllText(saveFileDialogMatrix.FileName, str + Environment.NewLine);
+                    str = "";
+                }
             }
         }
 
-        private void ButtonHelp_Click(object sender, EventArgs e)
+        private void buttonHelp_Click(object sender, EventArgs e)
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
-        }
-
-        private void LoadMatrixToDataGridView(string path, DataGridView dgv)
-        {
-            string[] lines = File.ReadAllLines(path);
-            int rows = lines.Length;
-            int columns = lines[0].Split(';').Length;
-
-            DataTable dt = new DataTable();
-
-            for (int i = 0; i < columns; i++)
-                dt.Columns.Add($"Column{i}");
-
-            foreach (string line in lines)
-            {
-                string[] cells = line.Split(';');
-                dt.Rows.Add(cells);
-            }
-
-            dgv.DataSource = dt;
-        }
-
-        private void DisplayMatrixInDataGridView(int[,] matrix, DataGridView dgv)
-        {
-            int rows = matrix.GetLength(0);
-            int columns = matrix.GetLength(1);
-
-            DataTable dt = new DataTable();
-
-            for (int i = 0; i < columns; i++)
-                dt.Columns.Add($"Column{i}");
-
-            for (int i = 0; i < rows; i++)
-            {
-                DataRow row = dt.NewRow();
-                for (int j = 0; j < columns; j++)
-                    row[j] = matrix[i, j];
-                dt.Rows.Add(row);
-            }
-
-            dgv.DataSource = dt;
-        }
-
-        private void SaveMatrixToFile(int[,] matrix, string path)
-        {
-            int rows = matrix.GetLength(0);
-            int columns = matrix.GetLength(1);
-
-            using (StreamWriter sw = new StreamWriter(path))
-            {
-                for (int i = 0; i < rows; i++)
-                {
-                    string[] line = new string[columns];
-                    for (int j = 0; j < columns; j++)
-                        line[j] = matrix[i, j].ToString();
-                    sw.WriteLine(string.Join(";", line));
-                }
-            }
         }
     }
 }
