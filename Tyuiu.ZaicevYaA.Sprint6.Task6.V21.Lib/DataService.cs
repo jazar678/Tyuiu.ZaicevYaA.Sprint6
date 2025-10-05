@@ -1,6 +1,7 @@
 ﻿using System;
-using tyuiu.cources.programming.interfaces.Sprint6;
 using System.IO;
+using System.Linq;
+using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 {
@@ -10,25 +11,35 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
         {
             string result = "";
 
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t' },
-                                              StringSplitOptions.RemoveEmptyEntries);
+            if (!File.Exists(path))
+                return "Файл не существует";
 
-                    foreach (string word in words)
-                    {
-                        if (word.Contains(str))
-                        {
-                            result += word + " ";
-                        }
-                    }
-                }
+            try
+            {
+                string fileContent = File.ReadAllText(path);
+
+                // Разделяем на слова, используя различные разделители
+                char[] separators = new char[] {
+                    ' ', ',', '.', '!', '?', ';', ':', '\t', '\r', '\n',
+                    '(', ')', '[', ']', '{', '}', '"', '\'', '-', '_',
+                    '=', '+', '*', '/', '\\', '|', '<', '>', '&', '%', '$', '@'
+                };
+
+                string[] words = fileContent.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+                // Фильтруем слова, содержащие букву 'g' (регистронезависимо)
+                var filteredWords = words.Where(word =>
+                    word.IndexOf("g", StringComparison.OrdinalIgnoreCase) >= 0);
+
+                // Объединяем через пробел
+                result = string.Join(" ", filteredWords);
+            }
+            catch (Exception ex)
+            {
+                return $"Ошибка при чтении файла: {ex.Message}";
             }
 
-            return result.Trim();
+            return result;
         }
     }
 }
