@@ -17,59 +17,62 @@
 
         private void InitializeComponent()
         {
-            this.pictureBoxLogo_ZYA = new System.Windows.Forms.PictureBox();
-            this.labelInfo_ZYA = new System.Windows.Forms.Label();
-            this.buttonOk_ZYA = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_ZYA)).BeginInit();
-            this.SuspendLayout();
+            pictureBoxLogo_ZYA = new PictureBox();
+            labelInfo_ZYA = new Label();
+            buttonOk_ZYA = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo_ZYA).BeginInit();
+            SuspendLayout();
             // 
             // pictureBoxLogo_ZYA
             // 
-            this.pictureBoxLogo_ZYA.Location = new System.Drawing.Point(20, 20);
-            this.pictureBoxLogo_ZYA.Name = "pictureBoxLogo_ZYA";
-            this.pictureBoxLogo_ZYA.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxLogo_ZYA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo_ZYA.TabIndex = 0;
-            this.pictureBoxLogo_ZYA.TabStop = false;
+            pictureBoxLogo_ZYA.Location = new Point(23, 23);
+            pictureBoxLogo_ZYA.Margin = new Padding(4, 3, 4, 3);
+            pictureBoxLogo_ZYA.Name = "pictureBoxLogo_ZYA";
+            pictureBoxLogo_ZYA.Size = new Size(117, 115);
+            pictureBoxLogo_ZYA.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLogo_ZYA.TabIndex = 0;
+            pictureBoxLogo_ZYA.TabStop = false;
+            pictureBoxLogo_ZYA.Click += pictureBoxLogo_ZYA_Click;
             // 
             // labelInfo_ZYA
             // 
-            this.labelInfo_ZYA.AutoSize = true;
-            this.labelInfo_ZYA.Location = new System.Drawing.Point(140, 20);
-            this.labelInfo_ZYA.Name = "labelInfo_ZYA";
-            this.labelInfo_ZYA.Size = new System.Drawing.Size(300, 130);
-            this.labelInfo_ZYA.TabIndex = 1;
-            this.labelInfo_ZYA.Text = "Разработчик: Зайцев Я.А.\r\nгруппа ПКТб-24-1\r\n\r\nПрограмма разработана в рамках изу" +
-    "чения языка C#\r\n\r\nТомский политехнический университет (с) 2024\r\nВысшая школа ци" +
-    "фровых технологий (с) 2024\r\n";
+            labelInfo_ZYA.AutoSize = true;
+            labelInfo_ZYA.Location = new Point(163, 23);
+            labelInfo_ZYA.Margin = new Padding(4, 0, 4, 0);
+            labelInfo_ZYA.Name = "labelInfo_ZYA";
+            labelInfo_ZYA.Size = new Size(303, 105);
+            labelInfo_ZYA.TabIndex = 1;
+            labelInfo_ZYA.Text = "Разработчик: Зайцев Я.А.\r\nгруппа ПКТб-24-1\r\n\r\nПрограмма разработана в рамках изучения языка C#\r\n\r\nТомский политехнический университет (с) 2024\r\nВысшая школа цифровых технологий (с) 2024\r\n";
             // 
             // buttonOk_ZYA
             // 
-            this.buttonOk_ZYA.Location = new System.Drawing.Point(350, 160);
-            this.buttonOk_ZYA.Name = "buttonOk_ZYA";
-            this.buttonOk_ZYA.Size = new System.Drawing.Size(90, 30);
-            this.buttonOk_ZYA.TabIndex = 2;
-            this.buttonOk_ZYA.Text = "ОК";
-            this.buttonOk_ZYA.UseVisualStyleBackColor = true;
-            this.buttonOk_ZYA.Click += new System.EventHandler(this.buttonOk_ZYA_Click);
+            buttonOk_ZYA.Location = new Point(408, 185);
+            buttonOk_ZYA.Margin = new Padding(4, 3, 4, 3);
+            buttonOk_ZYA.Name = "buttonOk_ZYA";
+            buttonOk_ZYA.Size = new Size(105, 35);
+            buttonOk_ZYA.TabIndex = 2;
+            buttonOk_ZYA.Text = "ОК";
+            buttonOk_ZYA.UseVisualStyleBackColor = true;
+            buttonOk_ZYA.Click += buttonOk_ZYA_Click;
             // 
             // FormAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 201);
-            this.Controls.Add(this.buttonOk_ZYA);
-            this.Controls.Add(this.labelInfo_ZYA);
-            this.Controls.Add(this.pictureBoxLogo_ZYA);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormAbout";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "О программе";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo_ZYA)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(530, 232);
+            Controls.Add(buttonOk_ZYA);
+            Controls.Add(labelInfo_ZYA);
+            Controls.Add(pictureBoxLogo_ZYA);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormAbout";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "О программе";
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo_ZYA).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

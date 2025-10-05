@@ -14,14 +14,19 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib
 
             foreach (string line in lines)
             {
-                string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t' },
-                                          StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string word in words)
+                // Проверяем, содержит ли строка символы "**"
+                if (line.Contains("**"))
                 {
-                    if (word.Contains('g') || word.Contains('G'))
+                    string[] words = line.Split(new char[] { ' ', ',', '.', '!', '?', ';', ':', '\t', '-', '(', ')', '[', ']', '"' },
+                                              StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (string word in words)
                     {
-                        result += word + " ";
+                        // Ищем слова содержащие 'g' (регистронезависимо)
+                        if (word.IndexOf('g', StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            result += word + " ";
+                        }
                     }
                 }
             }

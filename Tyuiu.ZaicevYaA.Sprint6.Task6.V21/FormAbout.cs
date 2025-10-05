@@ -15,5 +15,10 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
         {
             this.Close();
         }
+
+        private void pictureBoxLogo_ZYA_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
