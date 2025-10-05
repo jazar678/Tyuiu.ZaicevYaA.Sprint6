@@ -1,8 +1,8 @@
 using System;
+using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
 using Tyuiu.ZaicevYaA.Sprint6.Task6.V21.Lib;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms;
 
 namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
 {
@@ -21,6 +21,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
             if (File.Exists(filePath))
             {
                 textBoxIn.Text = File.ReadAllText(filePath);
+                buttonDone.Image = Properties.Resources.run_enabled;
                 buttonDone.Enabled = true;
             }
             else
@@ -37,6 +38,7 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
             {
                 DataService ds = new DataService();
                 textBoxOut.Text = ds.CollectTextFromFile("g", path);
+                buttonDone.Image = Properties.Resources.run_completed;
             }
             else
             {
@@ -48,6 +50,38 @@ namespace Tyuiu.ZaicevYaA.Sprint6.Task6.V21
         {
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
+        }
+
+        private void buttonOpenFile_MouseEnter(object sender, EventArgs e)
+        {
+            buttonOpenFile.Image = Properties.Resources.folder_hover;
+        }
+
+        private void buttonOpenFile_MouseLeave(object sender, EventArgs e)
+        {
+            buttonOpenFile.Image = Properties.Resources.folder_normal;
+        }
+
+        private void buttonDone_MouseEnter(object sender, EventArgs e)
+        {
+            if (buttonDone.Enabled)
+                buttonDone.Image = Properties.Resources.run_hover;
+        }
+
+        private void buttonDone_MouseLeave(object sender, EventArgs e)
+        {
+            if (buttonDone.Enabled)
+                buttonDone.Image = Properties.Resources.run_enabled;
+        }
+
+        private void buttonHelp_MouseEnter(object sender, EventArgs e)
+        {
+            buttonHelp.Image = Properties.Resources.help_hover;
+        }
+
+        private void buttonHelp_MouseLeave(object sender, EventArgs e)
+        {
+            buttonHelp.Image = Properties.Resources.help_normal;
         }
     }
 }
